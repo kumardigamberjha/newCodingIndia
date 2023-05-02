@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block meta %}
+    <meta name="keywords"
+        content="coding india,coding for beginners, Python Tutorial, Programming Blogs, Codes, Data Science, HTML, CSS, Javascript">
+    <meta name="description" content="Coding india Learn programming, data science and learn python in interesting way">
+    <meta name="author" content="Coding India , Digamber Jha">
+    {% endblock meta %}
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2063912521900403"
+     crossorigin="anonymous"></script>
+    
+    {% load static %}
+
+    {% block title %}
+    <title>Coding India</title>
+    {% endblock title %}
+
+
+    <!-- MD Bootstrap -->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <!-- End MD -->
+
+
+    {% block css %}
+    <link rel="stylesheet" href="{%static 'css/main.css' %}">
+
+    {% endblock css %}
+
+</head>
+
+<body>
+    {% block nav %}
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-light text-dark">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="/">
+                <img class="nav-img" src="{% static 'img/ci.jpg' %}" height="16" alt="Coding India" loading="lazy"
+                    style="margin-top: -1px;" />
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars">menu</i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blogs_index' %}">Blogs</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'code_index' %}">Codes</a>
+                    </li>
+                    <li class="nav-item"><a href="https://www.youtube.com/c/CodinIndia" class="nav-link">Video
+                            Tutorial</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'project_index' %}">Projects</a>
+                    </li>
+                    
+
+                </ul>
+                <!-- Left links -->
+
+                <div style="list-style: none;" class="d-flex align-items-center">
+                    <li>
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-primary me-3" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                        <a class="btn btn-primary me-3" href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                    </li>
+                    <li>
+                        <a href="{% url 'signup' %}" class="btn btn-outline-primary" id="signup-btn">Sign Up</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Container wrapper -->
+    </nav>
+    
+
+    {% endblock nav %}
+
+    <!-- BLOCK CONTENT -->
+
+    {% block content %}
+    <video style="min-height: 100%; width: 100%; height: 450px; background-color: black;" autoplay muted loop>
+        <source src="{% static 'video/VID-20211220-WA0007.mp4' %}" type="video/mp4">
+    </video>
+
+    <section>
+        <h1 class="text-center mt-3 text-primary"
+            style="font-size: 3.2rem ;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchetz MS', sans-serif; font-weight: 600;">
+            Coding India</h1>
+        <div class=" container col-xl-8 px-2">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="https://res.cloudinary.com/coding-india/image/upload/v1643201586/robo_dhv6dj.jpg"
+                        class="d-block mx-lg-auto img-fluid title-img" alt="Bootstrap Themes" width="700" height="500"
+                        loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold lh-1 mb-3">Blogs</h2>
+                    <p class="lead">Coding India is a software development company which offers daily blogs on AI and
+                        ML,
+                        web development and Python Programming</p>
+
+                    <a href="{% url 'blogs_index' %}" class="btn btn-primary btn-lg px-4">Blogs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold lh-1 mb-3">Codes</h2>
+                    <p class="lead">Coding India provides Codes for beginners to learn and try program of one's
+                        interest.</p>
+                    <a href="{% url 'code_index' %}" class="btn btn-primary btn-lg px-4">Codes</a>
+
+                </div>
+
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="https://res.cloudinary.com/coding-india/image/upload/v1643201584/open_book_dn4vqf.png"
+                        class="d-block mx-lg-auto img-fluid " alt="Bootstrap Themes" width="700" height="500"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h1 class="text-center text-primary"
+        style="font-size: 3.2rem ;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchetz MS', sans-serif; font-weight: 600;">
+        Our Team</h1>
+
+    <div class="container team mt-3">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            {% for i in team %}
+            <div class="col-lg-4">
+                <center><img class="bd-placeholder-img rounded-circle img" src="../../../static/img/DJ.jpg" alt="">
+                </center>
+                <center>
+                    <h2>{{i.name}}</h2>
+                </center>
+                <center>
+                    <p>{{i.about}}</p>
+                </center>
+                <center>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </center>
+            </div><!-- /.col-lg-4 -->
+            {% endfor %}
+        </div>
+    {% endblock content %}
+
+
+
+
+
+        {% block footer %}
+        <div class="container">
+            <footer class="d-flex flex-wrap footer justify-content-between align-items-center py-3 my-3 border-top">
+                <p class="col-md-3 mb-0 text-muted">&copy; Coding India, Inc</p>
+
+                <a href="/"
+                    class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+
+                <ul class="nav col-md-6 justify-content-end">
+                    <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'blogs_index' %}" class="nav-link px-2 text-muted">Blogs</a>
+                    </li>
+                    <li class="nav-item"><a href="https://www.youtube.com/c/CodinIndia"
+                            class="nav-link px-2 text-muted">Video Tutorial</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="{% url 'project_index' %}">Projects</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+        {% endblock footer %}
+
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+        <!-- MDB -->
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
+</body>
+
+</html>

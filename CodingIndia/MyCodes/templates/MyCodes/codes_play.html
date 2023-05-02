@@ -1,0 +1,20 @@
+{% extends 'website/index.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-4 mb-3 text-success"
+    style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">{{play.name}}</h1>
+    <div class="row">
+        {% for i in blogs %}
+        <div class="card" style="width: 17rem;">
+            <img style="width: 100%; height: 120px;" src="{{i.img.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name|slice:"0:30"}}</h5>
+                <p class="card-text">{{i.date}}</p>
+                <a href="{% url 'read-codes' i.id %}" class="btn btn-primary">Read Code</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,123 @@
+{% extends 'website/index.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>{{sel_code.name}}</title>
+{% endblock title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{%static 'css/main.css' %}">
+<style>
+    .box {
+        color: wheat;
+        background-color: black;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        height: 60vh;
+        overflow: auto;
+        padding: 2% 5%;
+        font-size: 18px;
+        border: 5px solid gray;
+        border-radius: 33px;
+    }
+
+    .topic-box {
+        height: 80vh;
+        overflow: auto;
+    }
+
+    #code_name {
+        font-size: 2rem;
+    }
+
+    .codes p {
+        font-size: 1rem;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+
+<div class="container-fluid mt-3">
+
+    <div class="row">
+        
+
+        <div class="col-md-9">
+            <div class="">
+                <h1 class="text-center mb-3 text-success" id="code_name">{{sel_code.name}}</h1>
+                <hr>
+                {% if sel_code.content == "" %}
+                {% else %}
+                <div class="container-fluid box" style="height: 80vh;">
+                    <h2 class="text-center text-success">Code</h2>
+                    <hr>
+                    <div class="codes">
+                        {{sel_code.content|safe}}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sel_code.HTML == "" %}
+                {% else %}
+                <div class="container-fluid box">
+                    <h2 class="text-center text-success">HTML</h2>
+                    <hr>
+                    <div class="codes">
+                        {{sel_code.HTML|safe}}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sel_code.Css == "" %}
+                {% else %}
+                <div class="container-fluid box ">
+                    <h2 class="text-center text-success fixed">CSS</h2>
+                    <hr>
+                    <div class="codes">
+                        {{sel_code.Css|safe}}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sel_code.Js == "" %}
+                {% else %}
+                <div class="container-fluid box ">
+                    <h2 class="text-center text-success fixed">JavaScript</h2>
+                    <hr>
+                    <div class="codes">
+                        {{sel_code.Js|safe}}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-3 topic-box">
+            <h2 class="text-center text-success mt-2">Topic</h3>
+                <hr>
+                <ul class="list-group">
+                    {% for i in coding %}
+                    {% if play_id == i.cat.id %}
+                    <a href="{% url 'read-codes' i.id %}">
+                        <li class="list-group-item" id="link-data">{{i.name|slice:"0:30"}}...</li>
+                    </a>
+                    <!-- <button class="list-group-item ajaxbtn" id="id-{{i.id}}" data-catid="{{i.id}}" onclick="getData();">{{i.name|slice:"0:30"}}</button> -->
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+<script>
+    
+</script>
+{% endblock content %}

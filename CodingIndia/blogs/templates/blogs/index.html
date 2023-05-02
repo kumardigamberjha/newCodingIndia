@@ -1,0 +1,84 @@
+{% extends 'website/index.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Blogs - Coding India</title>
+{% endblock title %}
+
+
+{% block css %}
+<style>
+    .blog-head-img {
+        height: 150px;
+        width: 100%;
+        border-radius: 15px;
+    }
+</style>
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+{% endblock css %}
+
+{% block content %}
+
+{% if user.is_superuser %}
+    <a href="{% url 'addblog' %}" style="margin-top: 115px;">Add</a>
+{% endif %}
+
+<section class="mt-4">
+    <!-- <h1 class="text-center mb-3 text-success"
+        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">POPULAR
+        BLOG</h1> -->
+
+    <div class="p-4 p-md-5 mb-4 text-white row rounded bg-dark">
+        <div class=" px-0 d-flex">
+            <div class="content col-md-9">
+                <h1 class="display-4 fst-italic" style="font-size: 2.5rem;">{{ran.title}}</h1>
+                <p>{{ran.pub_date}}</p>
+                <p class="lead mb-0"><a href=""
+                        class="text-white fw-bold btn btn-primary">Continue
+                        reading...</a></p>
+            </div>
+            <div class="imgs col-md-3">
+                <img class="blog-head-img" src="{{ran.img.url}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="text-center mb-3 text-success"
+        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">Read Blogs from Playlist</h1>
+        <div class="row">
+            {% for i in play %}
+            <div class="card m-1" style="width: 17rem;">
+                <img style="width: 100%; height: 150px;" src="{{i.img.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.name}}</h5>
+                  <p class="card-text">Coding India</p>
+                  <a href="{% url 'readplay' i.id %}" class="btn btn-primary">View Blogs</a>
+                </div>
+              </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1 class="text-center mb-3 mt-4 text-success"
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">OUR
+            BLOGS</h1>
+
+        <div class="row">
+            <ul class="list-group">
+
+            {%for blog in blogs %}
+                <a href="{% url 'readblog' blog.post_id %}"><li class="list-group-item col-md-12">{{blog.title}}</li></a>
+            {%endfor%}
+        </ul>
+        </div>
+    </div>
+
+</section>
+{% endblock content %}

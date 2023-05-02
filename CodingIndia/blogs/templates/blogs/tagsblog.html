@@ -1,0 +1,22 @@
+{% extends 'website/index.html' %}
+
+{% load static %}
+
+{% block css %}
+<style>
+    .blog-head-img {
+        height: 150px;
+        width: 100%;
+    }
+</style>
+
+<link rel="stylesheet" href="{%static 'css/main.css' %}">
+
+{% endblock css %}
+
+{% block content %}
+<div class="row">
+    <h1>Tags Blogs</h1>
+    <a href=""></a>{{tags}}
+</div>
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends 'website/index.html' %}
+
+{% load static %}
+
+
+{% block title %}
+<title>{{play.name}} - coding india</title>
+{% endblock title %}
+
+{% block meta %}
+    <meta name="keywords" content="{{blogs, coding india, html, python, css, SQL, Javascript, How to, Data Science, Data Science with Python, coding, programming, Tips, Learn to code, AI, ML, Tutorials, Codes, Courses, Learning}}">
+    <meta name="description" content="Coding india Blog page is one where you can read blogs on different topics like Data Science, machine Learning AI etc.">
+    <meta name="author" content="Coding India , Digamber Jha">
+
+{% endblock meta %}
+
+<style>
+
+</style>
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-3 text-success mt-4"
+        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">
+        {{play.name}} Blogs</h1>
+
+    <div class="row">
+
+        {%for blog in blogs %}
+        <div class="col-md-3 mt-1">
+            <div class="card" style="width: 17rem;">
+                <img style="width:100%; height: 150px;" src="{{blog.img.url}}" class="card-img-top imgs" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{blog.title|slice:"0:30"}}...</h5>
+                    <p class="card-text">24, jan</p>
+                    <a href="{% url 'readblog' blog.post_id %}" class="btn btn-outline-success">view Tutorial</a>
+                </div>
+            </div>
+        </div>
+            {%endfor%}
+        </div>
+
+        </section>
+        {% endblock content %}
