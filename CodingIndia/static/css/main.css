@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #F2AE2E;
+}
+
+.loginbtn {
+    background-color: #F2AE2E;
+    color: #000;
+}
+
+.loginbtn:hover {
+    color: #F2AE2E;
+    border: 1px solid #F2AE2E;
+    background-color: transparent;
+}
+
+.signupbtn {
+    border: 1px solid #F2AE2E;
+    color: #F2AE2E;
+}
+
+.signupbtn:hover {
+    background-color: #F2AE2E;
+    color: #000;
+}
+
+.nav-img {
+    box-shadow: 2px 2px 2000px white;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+pre {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    font-family: cursive;
+    animation: typing 6s steps(100, end) infinite;
+}
+
+#services {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.5rem;
+    color: #000;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-bottom: 25px;
+}
