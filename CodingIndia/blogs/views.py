@@ -6,10 +6,12 @@ from blogs.models import AddBlog, Playlist, SomeModel
 def index(request):
     blogs = AddBlog.objects.all()
     play = Playlist.objects.all()
-    ran = AddBlog.objects.order_by('?')
+    ran = AddBlog.objects.order_by('?')[0]
+    print("Ran: ", ran)
+    # print("Ran: ", ran)
+
     # tags = AddBlog.tags.all()
     context = {'blogs':blogs, 'ran': ran, 'play':play}
-    # Random element 4
     return render(request, "blogs/index.html", context)
 
 def addblog(request):

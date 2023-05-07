@@ -22,9 +22,6 @@
 
 {% block content %}
 
-{% if user.is_superuser %}
-    <a href="{% url 'addblog' %}" style="margin-top: 115px;">Add</a>
-{% endif %}
 
 <section class="mt-4">
     <!-- <h1 class="text-center mb-3 text-success"
@@ -37,7 +34,7 @@
                 <h1 class="display-4 fst-italic" style="font-size: 2.5rem;">{{ran.title}}</h1>
                 <p>{{ran.pub_date}}</p>
                 <p class="lead mb-0"><a href=""
-                        class="text-white fw-bold btn btn-primary">Continue
+                        class="fw-bold btn signupbtn">Continue
                         reading...</a></p>
             </div>
             <div class="imgs col-md-3">
@@ -47,8 +44,8 @@
     </div>
 
     <div class="container">
-        <h1 class="text-center mb-3 text-success"
-        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">Read Blogs from Playlist</h1>
+        <h1 class="text-center mb-3 servicetitle"
+        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600; ">Read Blogs from Playlist</h1>
         <div class="row">
             {% for i in play %}
             <div class="card m-1" style="width: 17rem;">
@@ -56,7 +53,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{i.name}}</h5>
                   <p class="card-text">Coding India</p>
-                  <a href="{% url 'readplay' i.id %}" class="btn btn-primary">View Blogs</a>
+                  <a href="{% url 'readplay' i.id %}" class="btn loginbtn">View Blogs</a>
                 </div>
               </div>
                 
@@ -66,7 +63,7 @@
 
 
     <div class="container">
-        <h1 class="text-center mb-3 mt-4 text-success"
+        <h1 class="text-center mb-3 mt-4 servicetitle"
             style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">OUR
             BLOGS</h1>
 
