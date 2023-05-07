@@ -46,12 +46,12 @@
 
         <div class="col-md-9">
             <div class="">
-                <h1 class="text-center mb-3 text-success" id="code_name">{{sel_code.name}}</h1>
+                <h1 class="text-center mb-3 servicetitle" id="code_name">{{sel_code.name}}</h1>
                 <hr>
                 {% if sel_code.content == "" %}
                 {% else %}
                 <div class="container-fluid box" style="height: 80vh;">
-                    <h2 class="text-center text-success">Code</h2>
+                    <h2 class="text-center codetitle">Code</h2>
                     <hr>
                     <div class="codes">
                         {{sel_code.content|safe}}
@@ -62,7 +62,7 @@
                 {% if sel_code.HTML == "" %}
                 {% else %}
                 <div class="container-fluid box">
-                    <h2 class="text-center text-success">HTML</h2>
+                    <h2 class="text-center codetitle">HTML</h2>
                     <hr>
                     <div class="codes">
                         {{sel_code.HTML|safe}}
@@ -73,7 +73,7 @@
                 {% if sel_code.Css == "" %}
                 {% else %}
                 <div class="container-fluid box ">
-                    <h2 class="text-center text-success fixed">CSS</h2>
+                    <h2 class="text-center codetitle fixed">CSS</h2>
                     <hr>
                     <div class="codes">
                         {{sel_code.Css|safe}}
@@ -84,7 +84,7 @@
                 {% if sel_code.Js == "" %}
                 {% else %}
                 <div class="container-fluid box ">
-                    <h2 class="text-center text-success fixed">JavaScript</h2>
+                    <h2 class="text-center codetitle fixed">JavaScript</h2>
                     <hr>
                     <div class="codes">
                         {{sel_code.Js|safe}}
@@ -95,7 +95,7 @@
         </div>
 
         <div class="col-md-3 topic-box">
-            <h2 class="text-center text-success mt-2">Topic</h3>
+            <h2 class="text-center servicetitle mt-2">Topic</h3>
                 <hr>
                 <ul class="list-group">
                     {% for i in coding %}

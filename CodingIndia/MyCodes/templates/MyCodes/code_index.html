@@ -19,7 +19,7 @@
 {% block content %}
 
 <section class="latest">
-    <h1 class="text-center mt-4 text-success"
+    <h1 class="text-center mt-4 servicetitle"
         style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">Codes -
         Latest Playlist</h1>
 
@@ -34,7 +34,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{i.name}}</h5>
                     <p class="card-text">Coding India</p>
-                    <a href="{% url 'codes_play' i.id %}" class="btn btn-primary">View Tutorial</a>
+                    <a href="{% url 'codes_play' i.id %}" class="btn loginbtn">View Tutorial</a>
                 </div>
             </div>
             {% endfor code %}
