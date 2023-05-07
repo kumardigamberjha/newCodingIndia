@@ -10,10 +10,9 @@ from website.forms import ContactUsForm
 
 ######################## Views ##################################
 def index(request):
-    user = User.objects.all()
     team = Team.objects.all()
     quotes = Quotes.objects.all()
-    context = {'quotes': quotes, 'team': team,"user": user}
+    context = {'quotes': quotes, 'team': team}
     return render(request, "website/index.html", context)
 
 
