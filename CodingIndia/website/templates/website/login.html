@@ -5,14 +5,14 @@
 {% block content %}
 <p></p>
 <div class="container" style="width: 40%; text-align: center; height: 58vh;">
-    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="text-primary">Login Page</h1>
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="servicetitle">Login Page</h1>
 
     <main class="form-signin">
         <form action="" method="post">
 
             {% csrf_token %}
-            <img class="mb-4 img-fluid rounded-circle" src="{% static 'img/ci.jpg' %}" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal text-primary">Please sign in</h1>
+            <img class="mb-4 img-fluid rounded-circle" src="{% static 'images/codingindia.png' %}" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal servicetitle">Please sign in</h1>
 
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
@@ -23,7 +23,7 @@
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <input class="w-100 btn btn-lg btn-primary mt-2" name="signup_submit" type="submit">
+            <input class="w-100 btn btn-lg loginbtn mt-2" name="signup_submit" type="submit">
         </form>
     </main>
 
