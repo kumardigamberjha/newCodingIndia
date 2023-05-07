@@ -17,3 +17,20 @@ class Team(models.Model):
 
     def  __str__(self):
         return self.name
+
+
+class ServicesModel(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+    
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=45)
+    email = models.EmailField()
+    services = models.ForeignKey(ServicesModel, on_delete=models.SET_NULL, null=True)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

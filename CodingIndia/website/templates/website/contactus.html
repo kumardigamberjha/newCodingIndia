@@ -1,0 +1,97 @@
+{% extends 'website/index.html' %}
+
+{% block content %}
+
+<section class="container mt-5">
+    <!--Contact heading-->
+    <div class="row">
+        <!-- <div class="col-sm-12 text-center mb-4">
+            <a class="btn btn-primary" target="_blank"
+                href="https://www.paypal.com/webapps/shoppingcart?flowlogging_id=f8876459b9ac2&mfid=1619175810225_f8876459b9ac2#/checkout/openButton">
+                Donate Now <i class="fa fa-dollar"></i></a>
+        </div> -->
+        <!--Grid column-->
+        <div class="col-sm-12 mb-4 col-md-5">
+            <!--Form with header-->
+            <div class="card border-primary rounded-0">
+                <div class="card-header p-0">
+                    <div class="bg-primary text-white text-center py-2">
+                        <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+                        <p class="m-0">We’ll write rarely, but only the best content.</p>
+                    </div>
+                </div>
+                <div class="card-body p-3">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label> Your name </label>
+                            <div class="input-group">
+                                <input type="text" name="name" class="form-control" id="inlineFormInputGroupUsername"
+                                    placeholder="Your name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Your email</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <input type="email" name="email" class="form-control" id="inlineFormInputGroupUsername"
+                                    placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <select name="services" class="form-control" id="servicess" style="font-size: 1rem;">
+                                    <option value="">--Select Service--</option>
+                                    {% for i in service %}
+                                    <option value="{{i.id}}">{{i.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <textarea name="message" class="form-control" id="message"
+                                    style="width: 100%; height: 100px; color: black; text-align: left;"></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" name="submit" value="submit"
+                                class="btn btn-primary btn-block rounded-0 my-2 py-2">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-sm-12 col-md-7">
+            <!--Google map-->
+            <div class="mb-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13630.667024514465!2d75.56260345!3d31.3405751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1683433831130!5m2!1sen!2sin"
+                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+            </div>
+            <!--Buttons-->
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i class="fa fa-map-marker"></i></a>
+                    <p> Jalandhar, Punjab </p>
+                </div>
+                <div class="col-md-4">
+                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i class="fab fa-telegram"></i></a>
+                    <p>https://t.me/codinindia2020</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i class="fa fa-envelope"></i></a>
+                    <p>codinindia@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <!--Grid column-->
+    </div>
+</section>
+{% endblock content %}
