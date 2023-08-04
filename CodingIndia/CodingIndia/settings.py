@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'widget_tweaks',
     'taggit',
+    'PDFWORDConverter',
 ]
 
 MIDDLEWARE = [

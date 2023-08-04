@@ -1,256 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {% block meta %}
-    <meta name="keywords"
-        content="coding india,coding for beginners, Python Tutorial, Programming Blogs, Codes, Data Science, HTML, CSS, Javascript">
-    <meta name="description" content="Coding india Learn programming, data science and learn python in interesting way">
-    <meta name="author" content="Coding India , Digamber Jha">
+    <meta
+      name="keywords"
+      content="coding india,coding for beginners, Python Tutorial, Programming Blogs, Codes, Data Science, HTML, CSS, Javascript"
+    />
+    <meta
+      name="description"
+      content="Coding india Learn programming, data science and learn python in interesting way"
+    />
+    <meta name="author" content="Coding India , Digamber Jha" />
     {% endblock meta %}
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2063912521900403"
-        crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2063912521900403"
+      crossorigin="anonymous"
+    ></script>
 
-    {% load static %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EaselPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"
+    ></script>
 
-    {% block title %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    {% load static %} {% block title %}
     <title>Coding India</title>
     {% endblock title %}
 
-
     <!-- MD Bootstrap -->
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
     <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"
+      rel="stylesheet"
+    />
     <!-- End MD -->
 
     {% block css %}
-    <link rel="stylesheet" href="{%static 'css/main.css' %}">
+    <link rel="stylesheet" href="{%static 'css/main.css' %}" />
 
     {% endblock css %}
+  </head>
 
-</head>
+  <body style="overflow-x: hidden">
+    {% block nav %} {% endblock nav %} {% block content %}
 
-<body style="overflow-x: hidden;">
-    {% block nav %}
+    <!-- <sectio class="nav">
+      <h1>Coding India</h1>
+      <h3 class="span loader"><span class="m">E</span><span class="m">M</span><span class="m">P</span><span class="m">O</span><span class="m">W</span><span class="m">E</span><span class="m">R</span><span class="m">I</span><span class="m">N</span><span class="m">I</span><span class="m">G</span><span class="m">&nbsp;</span><span class="m">I</span><span class="m">N</span><span class="m">D</span><span class="m">I</span><span class="m">A</span><span class="m">&nbsp;</span><span class="m">B</span><span class="m">Y</span><span class="m">&nbsp;</span><span class="m">T</span><span class="m">E</span><span class="m">C</span><span class="m">H</span><span class="m">N</span><span class="m">O</span><span class="m">L</span><span class="m">O</span><span class="m">G</span><span class="m">Y</span> </h3>
+      <div class="nav-container"><a class="nav-tab" href="#tab-svelte">Website Development</a><a class="nav-tab" href="#tab-esbuild">Machine Learning</a><a class="nav-tab" href="#tab-next">Artificial Intelligence</a><span class="nav-tab-slider"></span></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top " style="background-color: #260037;">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">
-                <img class="nav-img" src="{% static 'images/codingindia.png' %}" alt="Coding India" loading="lazy"
-                    style="margin: 0; padding: 0; height: 80px; border-radius: 50%;" />
-            </a>
+      <video autoplay muted style="position: absolute; top: 0; left: 0; min">
+        <source src="https://v4.cdnpk.net/videvo_files/video/free/video0485/large_watermarked/_import_61b593756995c2.98061119_FPpreview.mp4" style=" height: 100vh; width: 100vw;" type="video/mp4">    
+      </video>
+    </sectio>
+    <main class="main">
+      <section class="slider" id="tab-svelte">
+        <h1>Website Development</h1>
+        <h2>another frontend JS framework</h2>
+      </section>
+      <section class="slider" id="tab-esbuild">
+        <h1>ESBUILD</h1>
+        <h2>an extremely fast JavaScript bundler</h2>
+      </section>
+      <section class="slider" id="tab-next">
+        <h1>NEXT.JS</h1>
+        <h2>framework for Production</h2>
+      </section>
+      <section class="slider" id="tab-typescript">
+        <h1>TYPESCRIPT</h1>
+        <h2>giving you better tooling at any scale</h2>
+      </section>
+      <section class="slider" id="tab-vite">
+        <h1>VITE</h1>
+        <h2>a frontend build tool</h2>
+      </section>
+    </main>
+    <canvas class="background" id="canvas"></canvas> -->
 
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars">menu</i>
-            </button>
+    <!--
+Sections animate in and out on scroll. Scroll up or down and the sections will wrap around after hitting the start or end. Uses GSAP for the animations.
+-->
 
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blogs_index' %}">Blogs</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'code_index' %}">Codes</a>
-                    </li>
-                    <li class="nav-item"><a href="https://www.youtube.com/c/CodinIndia" class="nav-link">Video
-                            Tutorial</a></li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'project_index' %}">Projects</a>
-                    </li>
-
-
-                </ul>
-                <!-- Left links -->
-
-                <div style="list-style: none;" class="d-flex align-items-center">
-                    <li>
-                        {% if user.is_authenticated %}
-                        <a class="btn loginbtn me-3" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                        <a class="btn loginbtn me-3" href="{% url 'login' %}">Login</a>
-                        {% endif %}
-                    </li>
-                    <li>
-                        <a href="{% url 'signup' %}" class="btn signupbtn" id="signup-btn">Sign Up</a>
-                    </li>
-                </div>
-            </div>
+    <header>
+      <div><a href="/">Coding India</a></div>
+      <!-- <div>
+        <a href="https://codepen.io/BrianCross/pen/PoWapLP"
+          >Original By Brian</a
+        >
+      </div> -->
+    </header>
+    <section class="first">
+      <div class="outer">
+        <div class="inner">
+          <div class="bg one">
+            <h2 class="section-heading"><a href="#">Empowering India By Technology</a></h2>
+          </div>
         </div>
-        <!-- Collapsible wrapper -->
-
-        <!-- Container wrapper -->
-    </nav>
-
-    {% endblock nav %}
-
-    <!-- BLOCK CONTENT -->
-
-    {% block content %}
-    <div style="background: #260037">
-        <section>
-            <div class="row" style="max-width: 100vw;">
-                <div class="col-md-6">
-                    <div class="container" style="margin-top: 20%;">
-                        <h1 style="color: white">
-                            <pre>Want To Learn Coding?</h1>
-                    <p style="color: rgba(255, 255, 255, 0.863)" class="mainpara">Unlock your potential with our comprehensive coding curriculum. Whether you're a beginner or an advanced programmer, we have everything you need to excel in the fast-paced world of technology.</p>
-                </div>
-                <div class="container mt-5">
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
-                            <a href="{% url 'blogs_index' %}" class="btn loginbtn" style="width: 100%; ">Blogs</a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="{% url 'code_index' %}" class="btn signupbtn" style="width: 100%;">Codes</a>
-                        </div>
-                        <div class="col-md-3"></div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-md-6">
-                    <img src="{% static 'images/hero1.png' %}" style="width: 100%; height: 85vh;" alt="">
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <section class="mt-5">
-        <h2 id="services">Our Services</h2>
-
-        <div class="row">
-            <div class="container col-xxl-11 px-4 py-5">
-                <div class="row flex-lg-row-reverse align-items-center py-5; max-width: 100vw">
-    
-                    <div class="col-lg-6">
-                        <h2 class="display-5 fw-bold lh-1 mb-3 servicetitle">Website Development</h2>
-                        <p class="lead">At Coding India, we offer website creation services for individuals as well as businesses.</p>
-                        <a href="{% url 'contacts' %}" class="btn loginbtn btn-lg px-4">Contact Us</a>
-    
-                    </div>
-    
-                    <div class="col-10 col-sm-8 col-lg-6">
-                        <img src="{% static 'images/pngegg.png' %}"
-                            class="d-block mx-lg-auto img-fluid " alt="Bootstrap Themes" style="width: 100%; height: 350px"
-                            loading="lazy">
-                    </div>
-                </div>
-            </div>
-
-        <div class=" container col-xl-11 px-2">
-            <div class="row flex-lg-row-reverse align-items-center py-5; max-width: 100vw">
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="https://res.cloudinary.com/coding-india/image/upload/v1643201586/robo_dhv6dj.jpg"
-                        class="d-block mx-lg-auto img-fluid title-img" alt="Bootstrap Themes" style="width: 100%; height: 350px; border-radius: 15px;"
-                        loading="lazy">
-                </div>
-                <div class="col-lg-6">
-                    <h2 class="display-5 fw-bold lh-1 mb-3 servicetitle">Blogs</h2>
-                    <p class="lead">Coding India is a software development company which offers daily blogs on AI and
-                        ML,
-                        web development and Python Programming</p>
-
-                    <a href="{% url 'blogs_index' %}" class="btn loginbtn btn-lg px-4">Blogs</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container col-xxl-11 px-4 py-5">
-            <div class="row flex-lg-row-reverse align-items-center py-5; max-width: 100vw">
-
-                <div class="col-lg-6">
-                    <h2 class="display-5 fw-bold lh-1 mb-3 servicetitle">Codes</h2>
-                    <p class="lead">Coding India provides Codes for beginners to learn and try program of one's
-                        interest.</p>
-                    <a href="{% url 'code_index' %}" class="btn loginbtn btn-lg px-4">Codes</a>
-
-                </div>
-
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="https://res.cloudinary.com/coding-india/image/upload/v1643201584/open_book_dn4vqf.png"
-                        class="d-block mx-lg-auto img-fluid " alt="Bootstrap Themes" style="width: 100%; height: 350px"
-                        loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
+      </div>
     </section>
-    
-    {% endblock content %}
-
-
-
-
-
-        {% block footer %}
-        <div class="container">
-            <footer class="d-flex flex-wrap footer justify-content-between align-items-center py-3 my-3 border-top">
-                <p class="col-md-3 mb-0 text-muted">&copy; Coding India, Inc</p>
-
-                <a href="/"
-                    class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap" />
-                    </svg>
-                </a>
-
-                <ul class="nav col-md-6 justify-content-end">
-                    <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-                    <li class="nav-item"><a href="{% url 'blogs_index' %}" class="nav-link px-2 text-muted">Blogs</a>
-                    </li>
-                    <li class="nav-item"><a href="https://www.youtube.com/c/CodinIndia"
-                            class="nav-link px-2 text-muted">Video Tutorial</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link px-2 text-muted" href="{% url 'project_index' %}">Projects</a>
-                    </li>
-                </ul>
-            </footer>
+    <section class="second">
+      <div class="outer">
+        <div class="inner">
+          <div class="bg">
+            <h2 class="section-heading">Website Development</h2>
+          </div>
         </div>
-        {% endblock footer %}
+      </div>
+    </section>
+    <section class="third">
+      <div class="outer">
+        <div class="inner">
+          <div class="bg">
+            <h2 class="section-heading">Machine Learning</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="fourth">
+      <div class="outer">
+        <div class="inner">
+          <div class="bg">
+            <h2 class="section-heading">Artificial Intelligence</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="fifth">
+      <div class="outer">
+        <div class="inner">
+          <div class="bg">
+            <h2 class="section-heading">Technology</h2>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    {% endblock content %} {% block footer %} {% endblock footer %}
 
-        <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
-        <!-- MDB -->
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
-</body>
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
+    ></script>
 
+    <script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://assets.codepen.io/16327/Observer.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
 </html>

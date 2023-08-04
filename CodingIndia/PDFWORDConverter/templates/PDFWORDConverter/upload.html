@@ -1,0 +1,6 @@
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="pdf_file">
+    <button type="submit">Convert to Word</button>
+  </form>
+  

@@ -1,96 +1,223 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .nav-link {
-    color: white;
+  color: white;
 }
 
 .nav-link:hover {
-    color: #F2AE2E;
+  color: #f2ae2e;
 }
 
 .loginbtn {
-    background-color: #F2AE2E;
-    color: #000;
+  background-color: #f2ae2e;
+  color: #000;
 }
 
 .loginbtn:hover {
-    color: #F2AE2E;
-    border: 1px solid #F2AE2E;
-    background-color: transparent;
+  color: #f2ae2e;
+  border: 1px solid #f2ae2e;
+  background-color: transparent;
 }
 
 .signupbtn {
-    border: 1px solid #F2AE2E;
-    color: #F2AE2E;
+  border: 1px solid #f2ae2e;
+  color: #f2ae2e;
 }
 
 .signupbtn:hover {
-    background-color: #F2AE2E;
-    color: #000;
+  background-color: #f2ae2e;
+  color: #000;
 }
 
 .nav-img {
-    box-shadow: 2px 2px 2000px white;
+  box-shadow: 2px 2px 2000px white;
 }
 
 @keyframes typing {
-    from {
-        width: 0
-    }
+  from {
+    width: 0;
+  }
 
-    to {
-        width: 100%
-    }
+  to {
+    width: 100%;
+  }
 }
 
 pre {
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    font-family: cursive;
-    animation: typing 6s steps(100, end) infinite;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  font-family: cursive;
+  animation: typing 6s steps(100, end) infinite;
 }
 
 #services {
-    font-family: 'Instrument Serif', serif;
-    font-size: 2.5rem;
-    color: #260037;
-    font-weight: 600;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    margin-bottom: 25px;
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5rem;
+  color: #260037;
+  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin-bottom: 25px;
 }
 #services:hover {
-    text-decoration: underline;
-    transition: 5s ease-in;
-    color: #F2AE2E;
+  text-decoration: underline;
+  transition: 5s ease-in;
+  color: #f2ae2e;
 }
 
-.mainpara{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.2rem;
-    /* margin-bottom: 15px; */
-    text-justify: newspaper;
+.mainpara {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  /* margin-bottom: 15px; */
+  text-justify: newspaper;
 }
-.servicetitle{
-    color: #260037;
+.servicetitle {
+  color: #260037;
 }
-.codetitle{
-    color: #F2AE2E;
+.codetitle {
+  color: #f2ae2e;
 }
-.lead{
-    color: black;
+.lead {
+  color: black;
 }
-.contactus{
-    background-color: #260037;
-    color: #F2AE2E;
+.contactus {
+  background-color: #260037;
+  color: #f2ae2e;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: white;
+  background: black;
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1rem, 5vw, 5rem);
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.5em;
+  margin-right: -0.5em;
+  color: #cccccc;
+  width: 90vw;
+  max-width: 1200px;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  width: 100%;
+  z-index: 3;
+  height: 7em;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(0.66rem, 2vw, 1rem);
+  letter-spacing: 0.5em;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+}
+section .outer,
+section .inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+section .bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+section .bg h2 {
+  z-index: 2;
+}
+section .bg .clip-text {
+  overflow: hidden;
+}
+
+.first .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&w=1920");
+}
+
+.second .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2Vic2l0ZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww&auto=format&w=1920");
+}
+
+.third .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("https://images.unsplash.com/photo-1644325349124-d1756b79dd42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fG5ldXJhbCUyMG5ldHdvcmt8ZW58MHx8MHx8fDA%3D&auto=format&w=1920");
+}
+
+.fourth .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("https://images.unsplash.com/photo-1644088379091-d574269d422f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fG5ldXJhbCUyMG5ldHdvcmt8ZW58MHx8MHx8fDA%3D&auto=format&w=1920");
+}
+
+.fifth .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("../images/cilogo.png");
+  background-position: 50% 45%;
+}
+
+h2 * {
+  will-change: transform;
 }
