@@ -1,223 +1,115 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap");
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.nav-link {
-  color: white;
-}
-
-.nav-link:hover {
-  color: #f2ae2e;
-}
-
-.loginbtn {
-  background-color: #f2ae2e;
-  color: #000;
-}
-
-.loginbtn:hover {
-  color: #f2ae2e;
-  border: 1px solid #f2ae2e;
-  background-color: transparent;
-}
-
-.signupbtn {
-  border: 1px solid #f2ae2e;
-  color: #f2ae2e;
-}
-
-.signupbtn:hover {
-  background-color: #f2ae2e;
-  color: #000;
-}
-
-.nav-img {
-  box-shadow: 2px 2px 2000px white;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
-
-  to {
+  
+  :root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+  }
+  
+  header {
+    position: relative; /* Added */
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
-}
+  
+  .header-container {
+    position: absolute; /* Added */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+  }
+  
+  /* Added styles for h1 and p */
+  .header-container h1 {
+    font-size: 6rem; /* Increased font size */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+  }
+  
+  .header-container p {
+    font-size: 1.2rem;
+  }
+  .animate-charcter
+  {
+     text-transform: uppercase;
+    background-image: linear-gradient(
+      -225deg,
+      orange 0%,
+      #fff 29%,
+      green 67%,
+      orangered 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+        font-size: 190px;
+  }
+  
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
 
-pre {
-  overflow: hidden;
-  border-right: 0.15em solid orange;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: 0.15em;
-  font-family: cursive;
-  animation: typing 6s steps(100, end) infinite;
+  .loader {
+    font-size: 2rem;
+  }
+  
+  .loader .m {
+    display: inline-block;
 }
-
-#services {
-  font-family: "Instrument Serif", serif;
-  font-size: 2.5rem;
-  color: #260037;
-  font-weight: 600;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
-  margin-bottom: 25px;
-}
-#services:hover {
-  text-decoration: underline;
-  transition: 5s ease-in;
-  color: #f2ae2e;
-}
-
-.mainpara {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.2rem;
-  /* margin-bottom: 15px; */
-  text-justify: newspaper;
-}
-.servicetitle {
-  color: #260037;
-}
-.codetitle {
-  color: #f2ae2e;
-}
-.lead {
-  color: black;
-}
-.contactus {
-  background-color: #260037;
-  color: #f2ae2e;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
-* {
-  box-sizing: border-box;
-  user-select: none;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  color: white;
-  background: black;
-  font-family: "Cormorant Garamond", serif;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-size: clamp(1rem, 5vw, 5rem);
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 0.5em;
-  margin-right: -0.5em;
-  color: #cccccc;
-  width: 90vw;
-  max-width: 1200px;
-}
-
-header {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  width: 100%;
-  z-index: 3;
-  height: 7em;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(0.66rem, 2vw, 1rem);
-  letter-spacing: 0.5em;
-}
-
-section {
-  height: 100%;
-  width: 100%;
-  top: 0;
-  position: fixed;
-  visibility: hidden;
-}
-section .outer,
-section .inner {
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
-}
-section .bg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#header-nav{
   position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  background-size: cover;
-  background-position: center;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
-section .bg h2 {
-  z-index: 2;
-}
-section .bg .clip-text {
-  overflow: hidden;
-}
+#header-nav ul{
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid blue;
+  padding: 20px;
+  background: navy;
+  color: white;
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
 
-.first .bg {
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    url("https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&w=1920");
 }
-
-.second .bg {
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    url("https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2Vic2l0ZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww&auto=format&w=1920");
-}
-
-.third .bg {
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    url("https://images.unsplash.com/photo-1644325349124-d1756b79dd42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fG5ldXJhbCUyMG5ldHdvcmt8ZW58MHx8MHx8fDA%3D&auto=format&w=1920");
-}
-
-.fourth .bg {
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    url("https://images.unsplash.com/photo-1644088379091-d574269d422f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fG5ldXJhbCUyMG5ldHdvcmt8ZW58MHx8MHx8fDA%3D&auto=format&w=1920");
-}
-
-.fifth .bg {
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    url("../images/cilogo.png");
-  background-position: 50% 45%;
-}
-
-h2 * {
-  will-change: transform;
+#header-nav ul li a{
+  text-decoration: none;
+  color: white;
 }

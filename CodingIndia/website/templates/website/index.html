@@ -1,198 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    {% block meta %}
-    <meta
-      name="keywords"
-      content="coding india,coding for beginners, Python Tutorial, Programming Blogs, Codes, Data Science, HTML, CSS, Javascript"
-    />
-    <meta
-      name="description"
-      content="Coding india Learn programming, data science and learn python in interesting way"
-    />
-    <meta name="author" content="Coding India , Digamber Jha" />
-    {% endblock meta %}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coding India</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
+  <!-- {% load static %}
+  <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+  <link rel="stylesheet" href="../../../static/css/main.css">
+</head>
 
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2063912521900403"
-      crossorigin="anonymous"
-    ></script>
+<body>
+  <header>
+     <video  loop muted playsinline class="background-video">
+      <source
+        src="https://v4.cdnpk.net/videvo_files/video/free/video0485/large_watermarked/_import_61b593756995c2.98061119_FPpreview.mp4"
+        type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="container header-container">
+      <!-- <h1>Coding India</h1>
+      <p>Empowering India With Technology</p> -->
+      <h1 class="animate-charcter">Coding India</h1>
+      <h3 class="span loader waviy"><span class="m">E</span><span class="m">M</span><span class="m">P</span><span class="m">O</span><span class="m">W</span><span class="m">E</span><span class="m">R</span><span class="m">&nbsp;</span><span class="m">I</span><span class="m">N</span><span class="m">D</span><span class="m">I</span><span class="m">A</span><span class="m">&nbsp;</span><span class="m">W</span><span class="m">I</span><span class="m">T</span><span class="m">H</span><span class="m">&nbsp;</span> <span class="m">T</span><span class="m">E</span><span class="m">C</span><span class="m">H</span><span class="m">N</span><span class="m">O</span><span class="m">L</span><span class="m">O</span><span class="m">G</span><span class="m">I</span><span class="m">E</span><span class="m">S</span></h3>
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/EaselPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
-    <script
-      async
-      src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"
-    ></script>
+    <div class="container" id="header-nav">
+      <ul>
+        <li><h4><a href="">Website Development</a></h4></li>
+        <li><h4><a href="">Machine Learning</a></h4></li>
+        <li><h4><a href="">Artificial Intelligence</a></h4></li>
+      </ul>
+    </div>
+  </header>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-    {% load static %} {% block title %}
-    <title>Coding India</title>
-    {% endblock title %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 
-    <!-- MD Bootstrap -->
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"
-      rel="stylesheet"
-    />
-    <!-- End MD -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
 
-    {% block css %}
-    <link rel="stylesheet" href="{%static 'css/main.css' %}" />
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <!-- <script src="{% static 'js/main.js' %}"></script> -->
+  <script src="../../../static/js/main.js"></script>
+</body>
 
-    {% endblock css %}
-  </head>
-
-  <body style="overflow-x: hidden">
-    {% block nav %} {% endblock nav %} {% block content %}
-
-    <!-- <sectio class="nav">
-      <h1>Coding India</h1>
-      <h3 class="span loader"><span class="m">E</span><span class="m">M</span><span class="m">P</span><span class="m">O</span><span class="m">W</span><span class="m">E</span><span class="m">R</span><span class="m">I</span><span class="m">N</span><span class="m">I</span><span class="m">G</span><span class="m">&nbsp;</span><span class="m">I</span><span class="m">N</span><span class="m">D</span><span class="m">I</span><span class="m">A</span><span class="m">&nbsp;</span><span class="m">B</span><span class="m">Y</span><span class="m">&nbsp;</span><span class="m">T</span><span class="m">E</span><span class="m">C</span><span class="m">H</span><span class="m">N</span><span class="m">O</span><span class="m">L</span><span class="m">O</span><span class="m">G</span><span class="m">Y</span> </h3>
-      <div class="nav-container"><a class="nav-tab" href="#tab-svelte">Website Development</a><a class="nav-tab" href="#tab-esbuild">Machine Learning</a><a class="nav-tab" href="#tab-next">Artificial Intelligence</a><span class="nav-tab-slider"></span></div>
-
-      <video autoplay muted style="position: absolute; top: 0; left: 0; min">
-        <source src="https://v4.cdnpk.net/videvo_files/video/free/video0485/large_watermarked/_import_61b593756995c2.98061119_FPpreview.mp4" style=" height: 100vh; width: 100vw;" type="video/mp4">    
-      </video>
-    </sectio>
-    <main class="main">
-      <section class="slider" id="tab-svelte">
-        <h1>Website Development</h1>
-        <h2>another frontend JS framework</h2>
-      </section>
-      <section class="slider" id="tab-esbuild">
-        <h1>ESBUILD</h1>
-        <h2>an extremely fast JavaScript bundler</h2>
-      </section>
-      <section class="slider" id="tab-next">
-        <h1>NEXT.JS</h1>
-        <h2>framework for Production</h2>
-      </section>
-      <section class="slider" id="tab-typescript">
-        <h1>TYPESCRIPT</h1>
-        <h2>giving you better tooling at any scale</h2>
-      </section>
-      <section class="slider" id="tab-vite">
-        <h1>VITE</h1>
-        <h2>a frontend build tool</h2>
-      </section>
-    </main>
-    <canvas class="background" id="canvas"></canvas> -->
-
-    <!--
-Sections animate in and out on scroll. Scroll up or down and the sections will wrap around after hitting the start or end. Uses GSAP for the animations.
--->
-
-    <header>
-      <div><a href="/">Coding India</a></div>
-      <!-- <div>
-        <a href="https://codepen.io/BrianCross/pen/PoWapLP"
-          >Original By Brian</a
-        >
-      </div> -->
-    </header>
-    <section class="first">
-      <div class="outer">
-        <div class="inner">
-          <div class="bg one">
-            <h2 class="section-heading"><a href="#">Empowering India By Technology</a></h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="second">
-      <div class="outer">
-        <div class="inner">
-          <div class="bg">
-            <h2 class="section-heading">Website Development</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="third">
-      <div class="outer">
-        <div class="inner">
-          <div class="bg">
-            <h2 class="section-heading">Machine Learning</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="fourth">
-      <div class="outer">
-        <div class="inner">
-          <div class="bg">
-            <h2 class="section-heading">Artificial Intelligence</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="fifth">
-      <div class="outer">
-        <div class="inner">
-          <div class="bg">
-            <h2 class="section-heading">Technology</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {% endblock content %} {% block footer %} {% endblock footer %}
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- MDB -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
-    ></script>
-
-    <script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
-    <script src="https://assets.codepen.io/16327/Observer.min.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
-
-    <script src="{% static 'js/main.js' %}"></script>
-  </body>
 </html>
