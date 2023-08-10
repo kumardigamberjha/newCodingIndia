@@ -7,6 +7,11 @@
   :root {
     --blue: #1e90ff;
     --white: #ffffff;
+    --orange: orange;
+    --orangered: orangered;
+    --green: green;
+
+    --fw: 500;
   }
   
   header {
@@ -19,7 +24,7 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
   }
   
   .background-video {
@@ -48,8 +53,15 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: bold;
+    text-align: center;
   }
-  
+
+  @media (max-width: 768px) {
+    .header-container h1 {
+      font-size: 4rem; /* Further reduce font size for smaller screens */
+    }
+  }
+    
   .header-container p {
     font-size: 1.2rem;
   }
@@ -112,4 +124,15 @@
 #header-nav ul li a{
   text-decoration: none;
   color: white;
+}
+
+
+
+/* ############### Section ############ */
+.headings{
+  color: var(--orangered);
+}
+strong{
+  color: var(--green);
+  font-weight: var(--fw);
 }
