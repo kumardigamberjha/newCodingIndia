@@ -10,8 +10,11 @@
     --orange: orange;
     --orangered: orangered;
     --green: green;
+    --navy: navy;
 
     --fw: 500;
+    --fw700: 700;
+
   }
   
   header {
@@ -111,10 +114,10 @@
 #header-nav ul{
   width: 100vw;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border: 1px solid blue;
   padding: 20px;
-  background: navy;
+  background: var(--navy);
   color: white;
   list-style: none;
   margin-bottom: 0;
@@ -124,6 +127,7 @@
 #header-nav ul li a{
   text-decoration: none;
   color: white;
+  padding: 15px;
 }
 
 
@@ -135,4 +139,64 @@
 strong{
   color: var(--green);
   font-weight: var(--fw);
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.parallax-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: Montserrat, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.parallax-item h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  /* background-color: whitesmoke; */
+  font-weight: var(--fw700);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.parallax-item:first-child {
+  /* background: url("https://images.unsplash.com/photo-1663305411753-4c305e177ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjM5NDA4ODE&ixlib=rb-1.2.1&q=80"); */
+  background-size: cover;
+}
+
+.parallax-item:nth-child(2) {
+  background: #fdd835;
+}
+
+.parallax-item:nth-child(3) {
+  background: url("https://images.unsplash.com/photo-1663183539627-adbe2c8ef43d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjM5Mzk5ODc&ixlib=rb-1.2.1&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax Effect for DIV 3 */
+  min-height: 600px;
+}
+
+.parallax-item:nth-child(4) {
+  background: #1565c0;
+}
+
+@media screen and (max-width: 768px) {
+  .parallax-item h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.btnstyle{
+  background-color: var(--navy);
+  color: var(--white);
+}
+.btnstyle:hover{
+  background-color: var(--blue);
+  color: var(--white);
 }
