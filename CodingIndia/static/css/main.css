@@ -115,7 +115,7 @@
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  border: 1px solid blue;
+  border: 1px solid var(--blue);
   padding: 20px;
   background: var(--navy);
   color: white;
@@ -299,9 +299,9 @@ html {
   border-radius: 15px;
   background: linear-gradient(
     140deg,
-    #42c3ca 0%,
-    #42c3ca 50%,
-    #42c3cac7 75%
+    var(--blue) 0%,
+    var(--blue) 50%,
+    var(--blue) 75%
   ) !important;
   color: #fff;
   font-weight: 500;
