@@ -99,10 +99,13 @@
 
   .loader {
     font-size: 2rem;
+    font-weight: 600;
   }
   
   .loader .m {
     display: inline-block;
+    font-weight: 600;
+
 }
 #header-nav{
   position: absolute;
@@ -115,7 +118,6 @@
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--blue);
   padding: 20px;
   background: var(--navy);
   color: white;
@@ -153,7 +155,9 @@ html {
   font-weight: bold;
   font-family: Montserrat, sans-serif;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 80vh;
+  height: 80vh;
 }
 
 .parallax-items {
@@ -161,7 +165,8 @@ html {
   font-weight: bold;
   font-family: Montserrat, sans-serif;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 80vh; */
+  /* height: 80vh; */
 }
 .parallax-items h2 {
   font-size: 3rem;
@@ -315,6 +320,7 @@ html {
   font-size: 2.5rem;
 }
 .our_solution_content p {
+  text-align: justify;
 }
 
 .hover_color_bubble {
@@ -383,4 +389,58 @@ html {
     width: 50%;
     margin: 0 auto;
   }
+}
+
+
+
+/* ################## SideBar ################# */
+.sidebar {
+  height: 100vh;
+  /* position: fixed; */
+  position: absolute;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  background-color: #007cf9;
+  padding-top: 60px;
+  transition: 0.3s;
+}
+
+.sidebar a {
+  padding: 15px;
+  text-align: right;
+  text-decoration: none;
+  font-size: 18px;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #007bff;
+}
+
+/* Custom styles for the menu button */
+.menu-button {
+  font-size: 24px;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  color: white;
+  padding: 5px 15px;
+}
+.menu-button:hover{
+  border: 1px solid rgba(255, 255, 255, 0.355);
+  border-radius: 05px;
+  transition: 0.6s ease;
+}
+.close-button {
+  right: -220px;
+  font-size: 30px;
+  margin-top: -35px;
+  padding-left: 35px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
 }

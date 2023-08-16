@@ -26,7 +26,6 @@ urlpatterns = [
     path("blogs/", include("blogs.urls")),
     path("Codes/", include("MyCodes.urls")),
     path("projects/", include("projects.urls")),
-    path("PDFConverter/", include("PDFWORDConverter.urls")),
     
     path("SignUp/", views.Signup_view, name="signup"),
     path('login/', views.Login_view, name="login"),
