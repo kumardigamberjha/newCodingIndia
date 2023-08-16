@@ -2,8 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
   }
-  
+  a:hover{
+  text-decoration: none;
+  }
   :root {
     --blue: #1e90ff;
     --white: #ffffff;
@@ -407,7 +410,7 @@ html {
 }
 
 .sidebar a {
-  padding: 15px;
+  padding: 05px;
   text-align: right;
   text-decoration: none;
   font-size: 18px;
@@ -417,7 +420,8 @@ html {
 }
 
 .sidebar a:hover {
-  color: #007bff;
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 /* Custom styles for the menu button */
@@ -443,4 +447,9 @@ html {
   cursor: pointer;
   color: white;
   font-weight: 600;
+}
+
+/* ################# Footer ############ */
+footer a{
+  text-decoration: none;
 }
