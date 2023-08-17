@@ -14,6 +14,9 @@
     --orangered: orangered;
     --green: green;
     --navy: navy;
+    --darknavy: #011640;
+    --darkblue: #010D26;
+    --darkorange: #F2522E;
 
     --fw: 500;
     --fw700: 700;
@@ -134,7 +137,9 @@
   color: white;
   padding: 15px;
 }
-
+#header-nav ul li a:hover{
+  color: var(--darkorange);
+}
 
 
 /* ############### Section ############ */
@@ -142,7 +147,7 @@
   color: var(--orangered);
 }
 strong{
-  color: var(--green);
+  color: var(--darkorange);
   font-weight: var(--fw);
 }
 
@@ -160,7 +165,7 @@ html {
   width: 100%;
   /* min-height: 100vh; */
   min-height: 80vh;
-  height: 80vh;
+  height: 60vh;
 }
 
 .parallax-items {
@@ -215,7 +220,7 @@ html {
 .btnstyle{
   background-color: var(--blue);
   color: var(--white);
-  padding: 15px;
+  padding: 8px 15px;
   border-radius: 5px;
 
 }
@@ -404,23 +409,25 @@ html {
   top: 0;
   right: -250px;
   width: 250px;
-  background-color: #007cf9;
+  background-color: var(--darknavy);
   padding-top: 60px;
   transition: 0.3s;
+  text-align: left;
 }
 
 .sidebar a {
   padding: 05px;
-  text-align: right;
+  padding-left: 34px;
+  text-align: left;
   text-decoration: none;
   font-size: 18px;
-  color: #000;
+  color: var(--white);
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: whitesmoke;
+  color: var(--darkorange);
   text-decoration: none;
 }
 
