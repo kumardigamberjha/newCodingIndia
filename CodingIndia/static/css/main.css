@@ -460,3 +460,21 @@ html {
 footer a{
   text-decoration: none;
 }
+.quotes {
+  width: 70%;
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  padding: 32px;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.quotes p{
+  color: black;
+  font-size: 2rem;
+}
+.quotes .author {
+  color: black;
+  font-size: 1.2rem;
+
+}

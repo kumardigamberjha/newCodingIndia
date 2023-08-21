@@ -14,6 +14,7 @@ def index(request):
     context = {'blogs':blogs, 'ran': ran, 'play':play}
     return render(request, "blogs/index.html", context)
 
+
 def addblog(request):
     form = AddBlogForm()
     somemodel = SomeModel.objects.all()
@@ -31,14 +32,44 @@ def addblog(request):
     context = {'form':form, 'somemodel': somemodel}
     return render(request, 'blogs/addblog.html', context)
 
+
+from django.http import FileResponse, Http404
+from django.http import HttpResponse
+from django.conf import settings
+import os
+
+def download_image(request, image_path):
+    full_path = os.path.join(settings.MEDIA_ROOT, image_path)
+    if os.path.exists(full_path):
+        with open(full_path, 'rb') as image_file:
+            response = FileResponse(image_file)
+            response['Content-Disposition'] = f'attachment; filename="{os.path.basename(full_path)}"'
+            return response
+    else:
+        raise Http404("Image not found")
+    
+
 def Readblog(request, post_id):
     blogs = AddBlog.objects.get(pk = post_id)
+    img_url = blogs.img.url
+    
+    print("Img Url: ", img_url)
+    
+    try:
+        response = download_image(request, img_url)
+        return response
+    except Http404 as e:
+        # Handle the case when the image is not found
+        return HttpResponse(str(e), status=404)
+    
     read = {'blogs':blogs}
     return render(request, 'blogs/readblogs.html', read)
+
 
 def TagsBlog(request, id=id):
     tag = AddBlog.tags.get(id=id)
     return render(request, 'blogs/tagsblog.html', {'tags': tag})
+
 
 def ReadPlay(request, post_id):
     plays = Playlist.objects.get(pk = post_id)
