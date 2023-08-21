@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from blogs.forms import *
 from blogs.models import AddBlog, Playlist, SomeModel
+from django.views.decorators.cache import cache_page
 
-# Create your views here.
+######################## Views ##################################
+@cache_page(60 * 15)
 def index(request):
     blogs = AddBlog.objects.all()
     play = Playlist.objects.all()
@@ -38,6 +40,7 @@ from django.http import HttpResponse
 from django.conf import settings
 import os
 
+@cache_page(60 * 15)
 def download_image(request, image_path):
     full_path = os.path.join(settings.MEDIA_ROOT, image_path)
     if os.path.exists(full_path):
@@ -49,6 +52,7 @@ def download_image(request, image_path):
         raise Http404("Image not found")
     
 
+@cache_page(60 * 15)
 def Readblog(request, post_id):
     blogs = AddBlog.objects.get(pk = post_id)
     img_url = blogs.img.url

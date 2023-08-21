@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_%oo(x+f47g%y=$6_s47idy@m%%sy*6eh@n!$==a-y2aa2#x7#
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = ['https://kainaatmahajan.com']
+CSRF_TRUSTED_ORIGINS = ['https://codingindia.co.in']
 
 
 # Application definition
@@ -151,3 +151,10 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "my_cache_table",
+    }
+}
