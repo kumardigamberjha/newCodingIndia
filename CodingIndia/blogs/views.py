@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from blogs.forms import *
-from blogs.models import AddBlog, Playlist, SomeModel
+from blogs.models import AddBlog, Playlist
 from django.views.decorators.cache import cache_page
 
 ######################## Views ##################################
@@ -19,7 +19,6 @@ def index(request):
 
 def addblog(request):
     form = AddBlogForm()
-    somemodel = SomeModel.objects.all()
     if request.method == "POST":
         form = AddBlogForm(request.POST, request.FILES)
 
@@ -31,15 +30,16 @@ def addblog(request):
             form.save()
             return redirect("blogs_index")
     
-    context = {'form':form, 'somemodel': somemodel}
+    context = {'form':form}
     return render(request, 'blogs/addblog.html', context)
 
 
 @cache_page(60 * 15)
 def Readblog(request, post_id):
     blogs = AddBlog.objects.get(pk = post_id)
+    randomBlogs = AddBlog.objects.exclude(pk=post_id).order_by('pub_date')[:3]
     
-    read = {'blogs':blogs}
+    read = {'blogs':blogs, 'randomBlogs': randomBlogs}
     return render(request, 'blogs/readblogs.html', read)
 
 

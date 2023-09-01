@@ -146,10 +146,7 @@
 .headings{
   color: var(--orangered);
 }
-strong{
-  color: var(--darkorange);
-  font-weight: var(--fw);
-}
+
 
 
 html {

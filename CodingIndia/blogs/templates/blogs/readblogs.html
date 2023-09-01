@@ -5,8 +5,9 @@
 {% endblock title %}
 
 {% block meta %}
-  <meta name="keywords" content='{{blogs.tags}}'>
-  <meta name="description" content="Coding india Blog page is one where you can read blogs on different topics like Data Science, machine Learning AI etc.">
+<meta name="keywords" content='{{blogs.tags}}'>
+<meta name="description"
+  content="Coding india Blog page is one where you can read blogs on different topics like Data Science, machine Learning AI etc.">
 {% endblock meta %}
 
 
@@ -15,9 +16,9 @@
 
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
 
-<div class="menu-button text-dark" id="menuButton" >&#9776;</div>
+<div class="menu-button text-dark" id="menuButton">&#9776;</div>
 
 <!-- Sidebar -->
 <nav id="sidebar" class="sidebar" style="z-index: 10000;">
@@ -29,7 +30,7 @@ integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQI
   <!-- Add more options as needed -->
 </nav>
 
-  <div class="readheads container">
+<!-- <div class="readheads container">
     <div class="row blogwidths">
       <div class="col-md-8">
         <article class="blog-post">
@@ -37,10 +38,8 @@ integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQI
           <h1 class="blog-post-titles text-dark">{{blogs.title}}</h1>
           <p class="blog-post-metas">{{blogs.pub_date}} <a href="#"></a></p>
 
-          <span style="text-align: justify;" class="text-dark">{{blogs.content|safe}}</span>
+          <span style="text-align: justify; color: black;" class="text-dark">{{blogs.content|safe}}</span>
         </article>
-          <!-- {{blogs.tags|safe}} -->
-
       </div>
 
       <div class="col-md-4">
@@ -64,6 +63,76 @@ integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQI
       </div>
 
     </div>
+  </div> -->
+<div class="container mt-4">
+  <div class="row g-5 ">
+    <div class="col-md-8 ">
+
+      <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1 mt-4">{{blogs.title}}</h2>
+        <p class="blog-post-meta">{{blogs.pub_date}} by <a href="#">{{blogs.title}}</a></p>
+
+        <p>{{blogs.content|safe}}</p>
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <h4 class="fst-italic">About</h4>
+          <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers,
+            content, or something else entirely. Totally up to you.</p>
+        </div>
+
+        <div>
+          <h4 class="fst-italic">Recent posts</h4>
+          <ul class="list-unstyled">
+            {% for i in randomBlogs %}
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                href="#">
+                <!-- <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <rect width="100%" height="100%" fill="#777" />
+                </svg> -->
+                <div class="col-lg-8">
+                  <h6 class="mb-0">{{i.title|slice:"0:25"}}</h6>
+                  <small class="text-body-secondary">{{i.pub_date}}</small>
+                </div>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Archives</h4>
+          <ol class="list-unstyled mb-0">
+            <li><a href="#">March 2021</a></li>
+            <li><a href="#">February 2021</a></li>
+            <li><a href="#">January 2021</a></li>
+            <li><a href="#">December 2020</a></li>
+            <li><a href="#">November 2020</a></li>
+            <li><a href="#">October 2020</a></li>
+            <li><a href="#">September 2020</a></li>
+            <li><a href="#">August 2020</a></li>
+            <li><a href="#">July 2020</a></li>
+            <li><a href="#">June 2020</a></li>
+            <li><a href="#">May 2020</a></li>
+            <li><a href="#">April 2020</a></li>
+          </ol>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Elsewhere</h4>
+          <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 </section>
 {% endblock content %}
