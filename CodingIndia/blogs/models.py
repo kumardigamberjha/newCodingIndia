@@ -27,7 +27,7 @@ class Playlist(models.Model):
     def save(self, *args, **kwargs):
         if self.img and not self.id:
             self.img = self.compressImage(self.img)
-        super(AddBlog, self).save(*args, **kwargs)
+        super(Playlist, self).save(*args, **kwargs)
 
     def compressImage(self, uploadedImage):
         imageTemporary = Image.open(uploadedImage)
