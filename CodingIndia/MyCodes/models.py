@@ -3,9 +3,40 @@ from django.db import models
 from datetime import date
 from ckeditor.fields import RichTextField
 
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+import sys
+
+
 class Category(models.Model):
     name = models.CharField(max_length=120)
     img = models.ImageField()
+    
+    def save(self, *args, **kwargs):
+        if self.img and not self.post_id:
+            self.img = self.compressImage(self.img)
+        super(Category, self).save(*args, **kwargs)
+
+    def compressImage(self, uploadedImage):
+        imageTemporary = Image.open(uploadedImage)
+
+        # Convert the image to RGB mode to remove the alpha channel
+        imageTemporary = imageTemporary.convert("RGB")
+
+        outputIoStream = BytesIO()
+        imageTemporaryResized = imageTemporary.resize((250, 150))
+        imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
+        outputIoStream.seek(0)
+
+        return InMemoryUploadedFile(
+            outputIoStream,
+            'ImageField',
+            "%s.webp" % self.img.name.split('.')[0],
+            'image/webp',  # Set the content type to 'image/webp'
+            sys.getsizeof(outputIoStream),
+            None
+        )
     
     def __str__(self):
         return self.name
@@ -25,6 +56,31 @@ class Codings(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if self.img and not self.post_id:
+            self.img = self.compressImage(self.img)
+        super(Category, self).save(*args, **kwargs)
+
+    def compressImage(self, uploadedImage):
+        imageTemporary = Image.open(uploadedImage)
+
+        # Convert the image to RGB mode to remove the alpha channel
+        imageTemporary = imageTemporary.convert("RGB")
+
+        outputIoStream = BytesIO()
+        imageTemporaryResized = imageTemporary.resize((250, 150))
+        imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
+        outputIoStream.seek(0)
+
+        return InMemoryUploadedFile(
+            outputIoStream,
+            'ImageField',
+            "%s.webp" % self.img.name.split('.')[0],
+            'image/webp',  # Set the content type to 'image/webp'
+            sys.getsizeof(outputIoStream),
+            None
+        )
 
 
 # Created model for Python for beginners
