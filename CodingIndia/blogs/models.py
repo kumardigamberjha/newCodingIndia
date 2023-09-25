@@ -64,7 +64,7 @@ class AddBlog(models.Model):
     sub_category = models.CharField(max_length=200, blank=True)
 
     content = RichTextField()
-    author= models.CharField(max_length=150, default="Codin India")
+    author= models.CharField(max_length=150, default="Coding India")
     readtime = models.IntegerField()
     tags = models.CharField(max_length=150)
     # dexc = models.TextField()

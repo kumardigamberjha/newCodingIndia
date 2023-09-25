@@ -37,9 +37,9 @@
   <nav id="sidebar" class="sidebar">
     <div class="close-button" id="closeButton">&times;</div>
     <a href="{% url 'blogs_index' %}">Blogs</a>
+    <a href="{% url 'code_index' %}">Coding</a>
     <a href="#">Website Development</a>
     <a href="#">Django Development</a>
-    <a href="#">Coding</a>
     <!-- Add more options as needed -->
   </nav>
     <video loop muted playsinline class="background-video">
@@ -92,7 +92,7 @@
               transformative potential of technology to uplift the youth of India and drive the nation towards progress.
               We firmly believe in the power of coding and its ability to shape the future.</p>
             <div class="btn-group">
-              <a href="" class="btnstyle">Learn Coding</a>
+              <a href="{% url 'blogs_index' %}" class="btnstyle">Read Blogs</a>
             </div>
           </div>
           <div class="col-md-6">
