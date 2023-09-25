@@ -7,7 +7,13 @@
     <div class="row">
         {% for i in blogs %}
         <div class="card" style="width: 17rem;">
-            <img style="width: 100%; height: 120px;" src="{{i.img.url}}" class="card-img-top" alt="...">
+            {% if i.img %}
+                <img style="width: 100%; height: 120px;"
+                    src="{{i.img.url}}"
+                    class="card-img-top" alt="...">
+                {% else %}
+                <img src="{% static 'images/logo.png' %}" alt="">
+                {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{i.name|slice:"0:30"}}</h5>
                 <p class="card-text">{{i.date}}</p>

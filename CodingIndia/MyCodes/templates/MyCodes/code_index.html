@@ -28,9 +28,13 @@
             {% for i in play %}
             <!-- Hackerrank Problem Solving -->
             <div class="card m-1" style="width: 17rem;">
+                {% if i.img %}
                 <img style="width: 100%; height: 150px;"
                     src="{{i.img.url}}"
                     class="card-img-top" alt="...">
+                {% else %}
+                <img src="{% static 'images/logo.png' %}" alt="">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{i.name}}</h5>
                     <p class="card-text">Coding India</p>
