@@ -19,7 +19,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{i.name|slice:"0:30"}}</h5>
                 <p class="card-text">{{i.date}}</p>
-                <a href="{% url 'read-codes' i.id %}" class="btn loginbtn">Read Code</a>
+                <a href="{% url 'read-codes' i.id %}" class="btn btn-outline-dark loginbtn">Read Code</a>
             </div>
         </div>
         {% endfor %}
