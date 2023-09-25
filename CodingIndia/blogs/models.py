@@ -25,7 +25,7 @@ class Playlist(models.Model):
     img = models.ImageField()
     
     def save(self, *args, **kwargs):
-        if self.img and not self.post_id:
+        if self.img and not self.id:
             self.img = self.compressImage(self.img)
         super(AddBlog, self).save(*args, **kwargs)
 
