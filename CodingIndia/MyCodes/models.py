@@ -14,7 +14,7 @@ class Category(models.Model):
     img = models.ImageField()
     
     def save(self, *args, **kwargs):
-        if self.img and not self.post_id:
+        if self.img and not self.id:
             self.img = self.compressImage(self.img)
         super(Category, self).save(*args, **kwargs)
 
@@ -58,7 +58,7 @@ class Codings(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        if self.img and not self.post_id:
+        if self.img and not self.id:
             self.img = self.compressImage(self.img)
         super(Category, self).save(*args, **kwargs)
 
