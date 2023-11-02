@@ -100,6 +100,7 @@
         </div>
         <!-- top bar end -->
 
+        {% block content %}
         <!-- banner -->
         <div class="mil-banner mil-top-space-0">
             <div class="swiper-container mil-banner-slideshow">
@@ -108,10 +109,10 @@
                         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXQlMjBzZXJ2aWNlfGVufDB8fDB8fHww" class="mil-background-image" style="object-position: center" data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/photo/2.jpg" class="mil-background-image" style="object-position: center" data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGl0JTIwc2VydmljZXxlbnwwfHwwfHx8MA%3D%3D" class="mil-background-image" style="object-position: center" data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/photo/3.jpg" class="mil-background-image" style="object-position: center" data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image">
+                        <img src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGl0JTIwc2VydmljZXxlbnwwfHwwfHx8MA%3D%3D" class="mil-background-image" style="object-position: center" data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image">
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@
                             <h1 class="mil-mb-60"><span class="mil-uppercase mil-light">We Provide Services <br>and Solutions</span> <span class="mil-font-3 mil-accent">To Enterprise</span></h1>
                             <div class="mil-flex-hori-center">
                                 <div>
-                                    <a href="contact.html" class="mil-button mil-border mil-light"><span>Let’s Talk</span></a>
+                                    <a href="{% url 'contactus' %}" class="mil-button mil-border mil-light"><span>Let’s Talk</span></a>
                                 </div>
                                 <p class="mil-button-descr mil-light-soft">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
@@ -963,7 +964,9 @@
                 </form>
             </div>
         </section>
+
         <!-- contact end -->
+        {% endblock content %}
 
         <!-- footer -->
         <footer class="mil-dark-bg">
