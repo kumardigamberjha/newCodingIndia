@@ -48,7 +48,7 @@ class Codings(models.Model):
     content = RichTextField(blank=True)
     cat = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     proj = models.BooleanField(default=False)
-    img = models.ImageField(blank=True, default="",null=True)
+    img = models.URLField(blank=True, null=True)
     author= models.CharField(max_length=150, default="Coding India")
     HTML = RichTextField(blank = True)
     Css = RichTextField(blank = True)
@@ -57,54 +57,29 @@ class Codings(models.Model):
     def __str__(self):
         return self.name
     
-    def save(self, *args, **kwargs):
-        if self.img and not self.id:
-            self.img = self.compressImage(self.img)
-        super(Codings, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     if self.img and not self.id:
+    #         self.img = self.compressImage(self.img)
+    #     super(Codings, self).save(*args, **kwargs)
 
-    def compressImage(self, uploadedImage):
-        imageTemporary = Image.open(uploadedImage)
+    # def compressImage(self, uploadedImage):
+    #     imageTemporary = Image.open(uploadedImage)
 
-        # Convert the image to RGB mode to remove the alpha channel
-        imageTemporary = imageTemporary.convert("RGB")
+    #     # Convert the image to RGB mode to remove the alpha channel
+    #     imageTemporary = imageTemporary.convert("RGB")
 
-        outputIoStream = BytesIO()
-        imageTemporaryResized = imageTemporary.resize((250, 150))
-        imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
-        outputIoStream.seek(0)
+    #     outputIoStream = BytesIO()
+    #     imageTemporaryResized = imageTemporary.resize((250, 150))
+    #     imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
+    #     outputIoStream.seek(0)
 
-        return InMemoryUploadedFile(
-            outputIoStream,
-            'ImageField',
-            "%s.webp" % self.img.name.split('.')[0],
-            'image/webp',  # Set the content type to 'image/webp'
-            sys.getsizeof(outputIoStream),
-            None
-        )
+    #     return InMemoryUploadedFile(
+    #         outputIoStream,
+    #         'ImageField',
+    #         "%s.webp" % self.img.name.split('.')[0],
+    #         'image/webp',  # Set the content type to 'image/webp'
+    #         sys.getsizeof(outputIoStream),
+    #         None
+    #     )
 
 
-# Created model for Python for beginners
-# class PythonForBegginers(models.Model):
-#     name = models.CharField(max_length=120)
-#     date = models.DateField(auto_now=True)
-#     content = RichTextField()
-#     cat = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
-#     proj = models.BooleanField(default=False)
-#     author= models.CharField(max_length=150, default="Coding India")
-
-#     def __str__(self):
-#         return self.name
-
-# class WebDesign(models.Model):
-#     img = models.ImageField()
-#     name = models.CharField(max_length=120)
-#     date = models.DateField(auto_now=True)
-#     cat = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
-#     HTML = RichTextField(blank = True)
-#     Css = RichTextField(blank = True)
-#     Js = RichTextField(blank = True)
-#     proj = models.BooleanField(default=False)
-#     author= models.CharField(max_length=150, default="Coding India")
-
-#     def __str__(self):
-#         return self.name

@@ -22,32 +22,32 @@ class BlogsTags(TaggedItemBase):
 class Playlist(models.Model):
     name = models.CharField(max_length=150)
     desc = models.TextField(blank=True)
-    img = models.ImageField()
+    img = models.URLField(blank=True, null=True)
     
-    def save(self, *args, **kwargs):
-        if self.img and not self.id:
-            self.img = self.compressImage(self.img)
-        super(Playlist, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     if self.img and not self.id:
+    #         self.img = self.compressImage(self.img)
+    #     super(Playlist, self).save(*args, **kwargs)
 
-    def compressImage(self, uploadedImage):
-        imageTemporary = Image.open(uploadedImage)
+    # def compressImage(self, uploadedImage):
+    #     imageTemporary = Image.open(uploadedImage)
 
-        # Convert the image to RGB mode to remove the alpha channel
-        imageTemporary = imageTemporary.convert("RGB")
+    #     # Convert the image to RGB mode to remove the alpha channel
+    #     imageTemporary = imageTemporary.convert("RGB")
 
-        outputIoStream = BytesIO()
-        imageTemporaryResized = imageTemporary.resize((250, 150))
-        imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
-        outputIoStream.seek(0)
+    #     outputIoStream = BytesIO()
+    #     imageTemporaryResized = imageTemporary.resize((250, 150))
+    #     imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
+    #     outputIoStream.seek(0)
 
-        return InMemoryUploadedFile(
-            outputIoStream,
-            'ImageField',
-            "%s.webp" % self.img.name.split('.')[0],
-            'image/webp',  # Set the content type to 'image/webp'
-            sys.getsizeof(outputIoStream),
-            None
-        )
+    #     return InMemoryUploadedFile(
+    #         outputIoStream,
+    #         'ImageField',
+    #         "%s.webp" % self.img.name.split('.')[0],
+    #         'image/webp',  # Set the content type to 'image/webp'
+    #         sys.getsizeof(outputIoStream),
+    #         None
+    #     )
 
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Playlist(models.Model):
 class AddBlog(models.Model):
     post_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
-    # img = models.ImageField()
+    img = models.URLField(blank=True, null=True)
     pub_date = models.DateField(auto_now=True)
     category = models.CharField(max_length=200, blank=True)
     sub_category = models.CharField(max_length=200, blank=True)
@@ -67,7 +67,6 @@ class AddBlog(models.Model):
     author= models.CharField(max_length=150, default="Coding India")
     readtime = models.IntegerField()
     tags = models.CharField(max_length=150)
-    # dexc = models.TextField()
     play = models.ForeignKey(Playlist, on_delete=models.CASCADE)
 
 
