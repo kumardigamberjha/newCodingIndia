@@ -1568,7 +1568,7 @@ top panel
           align-items: center;
 }
 .mil-top-panel .mil-logo {
-  height: 30px;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
