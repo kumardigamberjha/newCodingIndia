@@ -31,6 +31,7 @@ class ContactUs(models.Model):
     lname = models.CharField(max_length=45, blank=True, null=True)
     email = models.EmailField()
     phone = models.CharField(max_length=45)
+    file = models.ImageField(null=True, blank=True)
     # services = models.ForeignKey(ServicesModel, on_delete=models.SET_NULL, null=True)
     message = models.TextField()
 
