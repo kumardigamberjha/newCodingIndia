@@ -27,9 +27,11 @@ class ServicesModel(models.Model):
     
 
 class ContactUs(models.Model):
-    name = models.CharField(max_length=45)
+    fname = models.CharField(max_length=45)
+    lname = models.CharField(max_length=45)
     email = models.EmailField()
-    services = models.ForeignKey(ServicesModel, on_delete=models.SET_NULL, null=True)
+    phone = models.CharField(max_length=45)
+    # services = models.ForeignKey(ServicesModel, on_delete=models.SET_NULL, null=True)
     message = models.TextField()
 
     def __str__(self):
