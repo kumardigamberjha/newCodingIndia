@@ -882,13 +882,14 @@
             <div class="mil-deco mil-deco-accent" style="top: 0; right: 10%;"></div>
             <div class="container">
                 <h2 class="mil-light mil-mb-90">Contact <span class="mil-accent">Us</span></h2>
-                <form id="formFeedback" method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" action="{% url 'contactus' %}">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-6">
 
                             <div class="mil-input-frame mil-mb-30">
                                 <label><span class="mil-light">Name</span><span class="mil-accent">Required</span></label>
-                                <input type="text" name="name" required placeholder="Enter Your Name Here">
+                                <input type="text" name="fname" required placeholder="Enter Your Name Here">
                             </div>
                             <div class="mil-input-frame mil-mb-30">
                                 <label><span class="mil-light">Email Adress</span><span class="mil-accent">Required</span></label>
@@ -901,11 +902,11 @@
                             <div class="mil-attach-frame mil-mb-60">
                                 <i class="fas fa-paperclip"></i>
                                 <label class="mil-custom-file-input">
-                                    <span>Attach your file</span>
-                                    <input type="file" name="userfile" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                                    <span>Attach your Image file</span>
+                                    <input type="file" name="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
                                     text/plain, application/pdf, image/*" id="mil-file-input">
                                 </label>
-                                <p class="mil-text-sm mil-light-soft">up to 20MB</p>
+                                <p class="mil-text-sm mil-light-soft">up to 20MB (jpg, png accepted)</p>
                             </div>
 
                         </div>
