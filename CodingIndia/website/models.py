@@ -28,7 +28,7 @@ class ServicesModel(models.Model):
 
 class ContactUs(models.Model):
     fname = models.CharField(max_length=45)
-    lname = models.CharField(max_length=45)
+    lname = models.CharField(max_length=45, blank=True, null=True)
     email = models.EmailField()
     phone = models.CharField(max_length=45)
     # services = models.ForeignKey(ServicesModel, on_delete=models.SET_NULL, null=True)
