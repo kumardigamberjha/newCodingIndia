@@ -91,9 +91,9 @@ WSGI_APPLICATION = 'CodingIndia.wsgi.application'
 DATABASES = {  
    'default': {  
        'ENGINE': 'django.db.backends.mysql',  
-       'NAME': 'coding',  
+       'NAME': 'codingindia',  
        'USER': 'root',  
-       'PASSWORD': 'someone@123',  
+       'PASSWORD': 'dj@jha1011',  
        'HOST': '127.0.0.1',  
        'PORT': '3306',  
    }  
