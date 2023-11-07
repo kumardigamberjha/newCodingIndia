@@ -10,7 +10,7 @@ import requests,random
 from django.views.decorators.cache import cache_page
 
 ######################## Views ##################################
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def index(request):
     team = Team.objects.all()
 
