@@ -6,7 +6,7 @@ urlpatterns = [
     path("addblog/", views.addblog, name="addblog"),
     path("Tagsblog/<int:id>/", views.TagsBlog, name="tagsblog"),
 
-    path('readblog/<post_id>/', views.Readblog, name="readblog"),
+    path('readblog/<str:slug>/', views.Readblog, name="readblog"),
     path('readplay/<post_id>/', views.ReadPlay, name="readplay"),
 
 ]

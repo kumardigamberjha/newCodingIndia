@@ -35,9 +35,9 @@ def addblog(request):
 
 
 # @cache_page(60 * 15)
-def Readblog(request, post_id):
-    blogs = AddBlog.objects.get(pk = post_id)
-    randomBlogs = AddBlog.objects.exclude(pk=post_id).order_by('pub_date')[:3]
+def Readblog(request, slug):
+    blogs = AddBlog.objects.get(slug = slug)
+    randomBlogs = AddBlog.objects.exclude(slug=slug).order_by('pub_date')[:3]
     
     read = {'blogs':blogs, 'randomBlogs': randomBlogs}
     return render(request, 'blogs/readblogs.html', read)

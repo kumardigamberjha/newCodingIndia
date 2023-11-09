@@ -3,10 +3,11 @@ from datetime import date
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
-
+from django.utils.text import slugify
 from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.utils.crypto import get_random_string
 import sys
 # from django.contrib.auth.models import User
 
@@ -23,31 +24,6 @@ class Playlist(models.Model):
     name = models.CharField(max_length=150)
     desc = models.TextField(blank=True)
     img = models.URLField(blank=True, null=True)
-    
-    # def save(self, *args, **kwargs):
-    #     if self.img and not self.id:
-    #         self.img = self.compressImage(self.img)
-    #     super(Playlist, self).save(*args, **kwargs)
-
-    # def compressImage(self, uploadedImage):
-    #     imageTemporary = Image.open(uploadedImage)
-
-    #     # Convert the image to RGB mode to remove the alpha channel
-    #     imageTemporary = imageTemporary.convert("RGB")
-
-    #     outputIoStream = BytesIO()
-    #     imageTemporaryResized = imageTemporary.resize((250, 150))
-    #     imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
-    #     outputIoStream.seek(0)
-
-    #     return InMemoryUploadedFile(
-    #         outputIoStream,
-    #         'ImageField',
-    #         "%s.webp" % self.img.name.split('.')[0],
-    #         'image/webp',  # Set the content type to 'image/webp'
-    #         sys.getsizeof(outputIoStream),
-    #         None
-    #     )
 
 
     def __str__(self):
@@ -68,34 +44,24 @@ class AddBlog(models.Model):
     readtime = models.IntegerField()
     tags = models.CharField(max_length=150)
     play = models.ForeignKey(Playlist, on_delete=models.CASCADE)
-
+    slug = models.CharField(max_length=300)
 
     def __str__(self):  
         return self.title
     
-    # def save(self, *args, **kwargs):
-    #     if self.img and not self.post_id:
-    #         self.img = self.compressImage(self.img)
-    #     super(AddBlog, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
 
-    # def compressImage(self, uploadedImage):
-    #     imageTemporary = Image.open(uploadedImage)
+            random_string = get_random_string(length=6)
 
-    #     # Convert the image to RGB mode to remove the alpha channel
-    #     imageTemporary = imageTemporary.convert("RGB")
+            self.slug = f'{base_slug}-{random_string}'
 
-    #     outputIoStream = BytesIO()
-    #     imageTemporaryResized = imageTemporary.resize((250, 150))
-    #     imageTemporary.save(outputIoStream, format='WEBP', quality=85)  # Convert to WebP
-    #     outputIoStream.seek(0)
+            counter = 1
+            while AddBlog.objects.filter(slug=self.slug).exists():
+                random_string = get_random_string(length=6)
+                self.slug = f'{base_slug}-{random_string}'
+                counter += 1
 
-    #     return InMemoryUploadedFile(
-    #         outputIoStream,
-    #         'ImageField',
-    #         "%s.webp" % self.img.name.split('.')[0],
-    #         'image/webp',  # Set the content type to 'image/webp'
-    #         sys.getsizeof(outputIoStream),
-    #         None
-    #     )
-
+        super().save(*args, **kwargs)
 
