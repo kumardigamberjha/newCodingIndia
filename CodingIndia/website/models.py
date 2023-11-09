@@ -32,7 +32,7 @@ class ContactUs(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=45)
     file = models.ImageField(null=True, blank=True)
-    # services = models.ForeignKey(ServicesModel, on_delete=models.SET_NULL, null=True)
+    services = models.CharField(max_length=50, null=True, blank=True)
     message = models.TextField()
 
     def __str__(self):
