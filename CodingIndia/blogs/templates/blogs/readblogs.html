@@ -57,7 +57,7 @@
                   <div class="mil-mb-60">
                       <h5 class="mil-list-title mil-mb-30">Recent Posts</h5>
                       {% for i in randomBlogs %}
-                      <a href="publication.html" class="mil-post-sm mil-mb-15">
+                      <a href="{% url 'readblog' i.slug %}" class="mil-post-sm mil-mb-15">
                           <div class="mil-cover-frame"><img src="{{i.img}}" alt="cover"></div>
                           <div class="mil-description">
                               <h6>{{i.title}}</h6>
@@ -66,18 +66,18 @@
                       {% endfor %}
                   </div>
                   <div class="mil-divider mil-mb-60"></div>
-                  <div class="mil-mb-60">
+                  <!-- <div class="mil-mb-60">
                       <h5 class="mil-list-title mil-mb-30">Categories</h5>
                       <ul class="mil-hover-link-list">
                         {% for i in playlist %}
                           <li>
-                              <a href="#.">Business</a>
+                              <a href="#.">{{i.name}}</a>
                           </li>
                           {% endfor %}
                       </ul>
                   </div>
 
-                  <div class="mil-divider mil-mb-60"></div>
+                  <div class="mil-divider mil-mb-60"></div> -->
                   <h5 class="mil-list-title mil-mb-30">Contact us</h5>
                   <p class="mil-mb-30">You can contact us by visiting.</p>
                   <a href="{% url 'contactus' %}" class="mil-link mil-link-sm"><span>Contact Us</span><i class="fas fa-arrow-right"></i></a>
