@@ -44,7 +44,7 @@
                                             <h4>{{blog.title}}.</h4>
                                         </div>
                                         <div class="mil-card-text">
-                                            <p>{{blog.content|safe}}</p>
+                                            <p>{{blog.content|safe|slice:"0:50"}}...</p>
                                         </div>
                                     </div>
                                 </a>
