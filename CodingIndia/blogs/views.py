@@ -38,8 +38,8 @@ def addblog(request):
 def Readblog(request, slug):
     blogs = AddBlog.objects.get(slug = slug)
     randomBlogs = AddBlog.objects.exclude(slug=slug).order_by('pub_date')[:3]
-    
-    read = {'blogs':blogs, 'randomBlogs': randomBlogs}
+    playlist = Playlist.objects.all()    
+    read = {'blog':blogs, 'randomBlogs': randomBlogs, 'playlist': playlist}
     return render(request, 'blogs/readblogs.html', read)
 
 
