@@ -8,58 +8,71 @@
 
 {% block content %}
 
-
-
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
-
-<div class="menu-button text-dark" id="menuButton" >&#9776;</div>
-
-<!-- Sidebar -->
-<nav id="sidebar" class="sidebar" style="z-index: 10000;">
-  <div class="close-button" id="closeButton">&times;</div>
-  <a href="/">Home</a>
-  <a href="#">Website Development</a>
-  <a href="#">Django Development</a>
-  <a href="#">Coding</a>
-  <!-- Add more options as needed -->
-</nav>
-<section class="mt-4">
-
-    <div class="container">
-        <h1 class="text-center mb-3 servicetitle"
-        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600; ">Read Blogs from Playlist</h1>
-        <div class="row">
-            {% for i in play %}
-            <div class="card m-1" style="width: 17rem;">
-                <img style="width: 100%; height: 150px;" src="{{i.img}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{i.name}}</h5>
-                  <p class="card-text">Coding India</p>
-                  <a href="{% url 'readplay' i.id %}" class="btn loginbtn  btn-outline-dark">View Blogs</a>
+        <!-- banner -->
+        <div class="mil-banner-sm mil-deep-bg">
+            <img src="img/deco/map.png" alt="background" class="mil-background-image">
+            <div class="mil-deco mil-deco-accent" style="top: 47%; right: 10%; transform: rotate(90deg)"></div>
+            <div class="mil-banner-content">
+                <div class="container mil-relative">
+                    <ul class="mil-breadcrumbs mil-mb-30">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                    <h2 class="mil-uppercase">Our Blog</h2>
                 </div>
-              </div>
-                
-            {% endfor %}
+            </div>
         </div>
-    </div>
+        <!-- banner end -->
+
+        <!-- blog -->
+        <section class="mil-blog mil-p-120-0">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-6 col-xl-6 mil-mb-120">
+                        <div class="row">
+                            {% for blog in blogs %}
+                                <a href="publication.html" class="mil-card mil-mb-60">
+                                    <div class="mil-cover-frame">
+                                        <img src="{{blog.img}}" alt="project">
+                                    </div>
+                                    <div class="mil-description">
+                                        <div class="mil-card-title">
+                                            <ul class="mil-dot-list mil-text-sm mil-mb-15">
+                                                <li>Management</li>
+                                                <li>29 Oct. 2023</li>
+                                            </ul>
+                                            <h4>{{blog.title}}.</h4>
+                                        </div>
+                                        <div class="mil-card-text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor incididunt dolor sit amet, consectetur adipisicing.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mil-divider mil-mb-60"></div>
+
+                        <div class="mil-pagination mil-hidden-arrows">
+                            <div class="mil-slider-nav">
+                                <div class="mil-slider-btn-prev mil-blog-prev"><i class="fas fa-arrow-left"></i><span class="mil-h6">Prev</span></div>
+                            </div>
+                            <ul class="mil-pagination-numbers">
+                                <li class="mil-active"><a href="#.">1</a></li>
+                                <li><a href="#.">2</a></li>
+                                <li><a href="#.">3</a></li>
+                            </ul>
+                            <div class="mil-slider-nav">
+                                <div class="mil-slider-btn-next mil-blog-next"><span class="mil-h6">Next</span><i class="fas fa-arrow-right"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- blog end -->
 
 
-    <div class="container mb-3">
-        <h1 class="text-center mb-3 mt-4 servicetitle"
-            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600;">OUR
-            BLOGS</h1>
-
-        <div class="row">
-            <ul class="list-group">
-
-            {%for blog in blogs %}
-                <a href="{% url 'readblog' blog.post_id %}" style="text-decoration: none;"><li class="list-group-item col-md-12">{{blog.title}}</li></a>
-            {%endfor%}
-        </ul>
-        </div>
-    </div>
-
-</section>
 {% endblock content %}

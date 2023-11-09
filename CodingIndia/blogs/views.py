@@ -4,7 +4,7 @@ from blogs.models import AddBlog, Playlist
 from django.views.decorators.cache import cache_page
 
 ######################## Views ##################################
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def index(request):
     blogs = AddBlog.objects.all()
     play = Playlist.objects.all()
@@ -34,7 +34,7 @@ def addblog(request):
     return render(request, 'blogs/addblog.html', context)
 
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def Readblog(request, post_id):
     blogs = AddBlog.objects.get(pk = post_id)
     randomBlogs = AddBlog.objects.exclude(pk=post_id).order_by('pub_date')[:3]
