@@ -1,0 +1,119 @@
+<p>Sending Data and Receiving Data with Django and AJAX</p>
+
+<p><span style="color:#000000"><span style="background-color:#ffffff">In web development, integrating AJAX (Asynchronous JavaScript and XML) with Django allows for seamless data exchange between the front-end and back-end without page refreshes. This tutorial demonstrates how to use AJAX to send and retrieve data in a Django application, specifically focusing on a coupon matching scenario.</span></span></p>
+
+<p>&nbsp;</p>
+
+<h3><span style="color:#000000"><strong><span style="background-color:#ffffff">Backend Implementation (Django View)</span></strong></span></h3>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#000000"><span style="background-color:#ffffff">To begin, a Django view function named </span><code><span style="background-color:#ffffff">MatchCoupon</span></code><span style="background-color:#ffffff"> is created to handle incoming POST requests. It expects a &#39;couponcode&#39; parameter, which it retrieves from the request. Here&#39;s a breakdown of the key steps:</span></span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<pre>
+from django.http import JsonResponse
+
+from django.views.decorators.csrf import csrf_exempt
+
+from django.core.serializers import serialize
+
+from .models import CouponCodeModel
+
+
+@csrf_exempt
+
+def MatchCoupon(request):
+
+&nbsp; &nbsp; if request.method == &quot;POST&quot;:
+
+&nbsp; &nbsp; &nbsp; &nbsp; code = request.POST.get(&#39;couponcode&#39;)
+
+&nbsp; &nbsp; &nbsp; &nbsp; modeldata = CouponCodeModel.objects.filter(Coupon_Code=code)
+
+&nbsp; &nbsp; &nbsp; &nbsp; modeldataserializer = serialize(&#39;json&#39;, modeldata)
+
+&nbsp; &nbsp; &nbsp; &nbsp; return JsonResponse({&quot;name&quot;: modeldataserializer}, status=200)
+
+&nbsp; &nbsp; return JsonResponse({}, status=400)
+
+
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h3><span style="color:#000000"><strong><span style="background-color:#ffffff">Frontend Interaction (JavaScript)</span></strong></span></h3>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#000000"><span style="background-color:#ffffff">On the front-end, jQuery and AJAX are employed to capture changes in the coupon code input field and trigger a request to the Django view. Here&#39;s the breakdown of the JavaScript code:</span></span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<pre>
+
+&nbsp;</pre>
+
+<p>$(&#39;#couponcode&#39;).on(&#39;change&#39;, function(){<br />
+&nbsp; &nbsp; let couponcode = $(&#39;#couponcode&#39;).val();</p>
+
+<p>&nbsp; &nbsp; $.ajax({<br />
+&nbsp; &nbsp; &nbsp; &nbsp; url: &#39;{% url &quot;Matchcouponcode&quot; %}&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; method: &#39;POST&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; data: {&#39;couponcode&#39;: couponcode},<br />
+&nbsp; &nbsp; &nbsp; &nbsp; success: function (response) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var parsedResponse = JSON.parse(response.name);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var nameValue = parsedResponse[0].fields.name;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(&quot;Value Name: &quot;, nameValue);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; error: function (xhr, status, error) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert(&#39;Error saving form: &#39; + error);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; });<br />
+});<br />
+&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h3><span style="color:#000000"><span style="background-color:#ffffff">Explanation</span></span></h3>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<ul>
+	<li>
+	<p><span style="color:#000000"><strong><span style="background-color:#ffffff">Backend Logic</span></strong><span style="background-color:#ffffff">: The Django view </span><code><span style="background-color:#ffffff">MatchCoupon</span></code><span style="background-color:#ffffff"> uses </span><code><span style="background-color:#ffffff">CouponCodeModel</span></code><span style="background-color:#ffffff"> to query the database for a matching coupon code. Upon receiving a POST request, it returns JSON-serialized data containing coupon details if found, or an empty response with a status code 400 if not found.</span></span></p>
+	</li>
+	<br />
+	<li>
+	<p><span style="color:#000000"><strong><span style="background-color:#ffffff">Frontend Interaction</span></strong><span style="background-color:#ffffff">: The JavaScript code listens for changes in the input field with the ID &#39;couponcode&#39;. When a change occurs, it triggers an AJAX POST request to the Django view with the entered coupon code. Upon success, it parses the received JSON data to extract and log the &#39;name&#39; field value.</span></span></p>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#000000"><span style="background-color:#ffffff">This integration allows for real-time interaction, enabling users to input coupon codes and receive immediate feedback without reloading the page.</span></span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#000000"><span style="background-color:#ffffff">This approach demonstrates a basic implementation of AJAX in Django, facilitating dynamic data handling between the front-end and server.</span></span></p>
+
+<p>&nbsp;</p>

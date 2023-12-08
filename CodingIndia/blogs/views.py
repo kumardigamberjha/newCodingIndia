@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect
 from blogs.forms import *
+from django.core.paginator import Paginator
 from blogs.models import AddBlog, Playlist
-from django.views.decorators.cache import cache_page
 
 ######################## Views ##################################
-# @cache_page(60 * 15)
 def index(request):
     blogs = AddBlog.objects.all()
     play = Playlist.objects.all()
+    paginator = Paginator(blogs, 2)  # Show 25 contacts per page.
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     ran = AddBlog.objects.order_by('?')[0]
 
-    context = {'blogs':blogs, 'ran': ran, 'play':play}
+    context = {'page_obj':page_obj, 'ran': ran, 'play':play}
     return render(request, "blogs/index.html", context)
 
 
@@ -31,7 +34,6 @@ def addblog(request):
     return render(request, 'blogs/addblog.html', context)
 
 
-# @cache_page(60 * 15)
 def Readblog(request, slug):
     blogs = AddBlog.objects.get(slug = slug)
     randomBlogs = AddBlog.objects.exclude(slug=slug).order_by('pub_date')[:3]

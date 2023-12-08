@@ -30,7 +30,7 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-6 col-xl-6 mil-mb-120">
                         <div class="row">
-                            {% for blog in blogs %}
+                            {% for blog in page_obj %}
                                 <a href="{% url 'readblog' blog.slug %}" class="mil-card mil-mb-60">
                                     <div class="mil-cover-frame">
                                         <img src="{{blog.img}}" alt="project">
@@ -49,23 +49,25 @@
                                     </div>
                                 </a>
                             {% endfor %}
+                        <div class="pagination">
+                            <span class="step-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="?page=1">&laquo; first</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                {% endif %}
+                        
+                                <span class="current">
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                </span>
+                        
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
                         </div>
-
-                        <div class="mil-divider mil-mb-60"></div>
-
-                        <div class="mil-pagination mil-hidden-arrows">
-                            <div class="mil-slider-nav">
-                                <div class="mil-slider-btn-prev mil-blog-prev"><i class="fas fa-arrow-left"></i><span class="mil-h6">Prev</span></div>
-                            </div>
-                            <ul class="mil-pagination-numbers">
-                                <li class="mil-active"><a href="#.">1</a></li>
-                                <li><a href="#.">2</a></li>
-                                <li><a href="#.">3</a></li>
-                            </ul>
-                            <div class="mil-slider-nav">
-                                <div class="mil-slider-btn-next mil-blog-next"><span class="mil-h6">Next</span><i class="fas fa-arrow-right"></i></div>
-                            </div>
-                        </div>
+                    </div>
+                        
 
                     </div>
                     
