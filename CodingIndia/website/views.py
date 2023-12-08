@@ -18,6 +18,9 @@ def index(request):
     return render(request, "website/index.html", context)
 
 
+def PrivacyPolicy(request):
+    return render(request, 'website/privacypolicy.html')
+
 def ContactUsPage(request):
     form = ContactUsForm()
     service = ServicesModel.objects.all()
