@@ -1,0 +1,61 @@
+{% extends 'website/index.html' %}
+
+{% block content %}
+        <!-- banner -->
+        <div class="mil-banner-sm mil-deep-bg" style="background-color: black;">
+            <!-- <img src="" alt="background" class="mil-background-image"> -->
+            <div class="mil-deco mil-deco-accent" style="top: 47%; right: 10%; transform: rotate(90deg)"></div>
+            <div class="mil-banner-content">
+                <div class="container mil-relative">
+                    <ul class="mil-breadcrumbs mil-mb-30">
+                        <li><a style="color: white;" href="/">Home</a></li>
+                        <li><a style="color: white;" href="portfolio.html">Works</a></li>
+                    </ul>
+                    <h2 class="mil-uppercase" style="color: white;">Case Studies</h2>
+                </div>
+            </div>
+        </div>
+        <!-- banner end -->
+
+        <!-- portfolio -->
+        <section class="mil-p-120-120">
+            <div class="container">
+                {% for i in data %}
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-xl-6 mil-mb-60">
+
+                        <div class="mil-project-cover">
+                            <img src="{{i.img}}" alt="Project" style="width: 100%; height: 100%; object-fit: contain; ">
+                        </div>
+                    </div>
+                    <div class="col-xl-5 mil-mb-60">
+                        <span class="mil-suptitle mil-suptitle-2 mil-mb-30">{{i.desc}}</span>
+                        <h3 class="mil-mb-30">{{i.name}}</h3>
+                        <a href="project.html" class="mil-button-with-label">
+                            <div class="mil-button mil-border mil-icon-button"><span><i class="fas fa-plus"></i></span></div><span class="mil-dark">See More</span>
+                        </a>
+                    </div>
+                </div>
+                
+                {% endfor %}
+
+                <div class="mil-divider mil-mb-60"></div>
+
+                <div class="mil-pagination mil-hidden-arrows">
+                    <div class="mil-slider-nav">
+                        <div class="mil-slider-btn-prev mil-blog-prev"><i class="fas fa-arrow-left"></i><span class="mil-h6">Prev</span></div>
+                    </div>
+                    <ul class="mil-pagination-numbers">
+                        <li class="mil-active"><a href="portfolio.html">1</a></li>
+                        <li><a href="portfolio.html">2</a></li>
+                        <li><a href="portfolio.html">3</a></li>
+                    </ul>
+                    <div class="mil-slider-nav">
+                        <div class="mil-slider-btn-next mil-blog-next"><span class="mil-h6">Next</span><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- portfolio end -->
+
+{% endblock content %}

@@ -37,3 +37,17 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Portfolio(models.Model):
+    name = models.CharField(max_length=350)
+    img = models.URLField()
+    urllink = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
+    desc = models.TextField()
+    dateadded = models.DateField(auto_now_add=True)
+    dateupdated = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.name

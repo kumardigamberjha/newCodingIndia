@@ -5,9 +5,9 @@ from .forms import CreateUserForm, ContactUsForm
 from django.contrib.auth.models import User
 
 from django.contrib import messages
-from website.models import Quotes, Team, ServicesModel, ContactUs
+from website.models import Quotes, Team, ServicesModel, ContactUs, Portfolio
 import requests,random
-from django.views.decorators.cache import cache_page
+# from django.views.decorators.cache import cache_page
 
 ######################## Views ##################################
 # @cache_page(60 * 15)
@@ -20,6 +20,7 @@ def index(request):
 
 def PrivacyPolicy(request):
     return render(request, 'website/privacypolicy.html')
+
 
 def ContactUsPage(request):
     form = ContactUsForm()
@@ -34,3 +35,10 @@ def ContactUsPage(request):
             print("Form Error: ", form.errors)
     context = {'form': form, 'service': service}
     return render(request, 'website/contactus.html', context)
+
+
+
+def PortfolioPage(request):
+    data = Portfolio.objects.all()
+    context = {'data':data}
+    return render(request, 'website/portfolio.html', context)
