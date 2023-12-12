@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from ckeditor.fields import RichTextField
 
 
 class Quotes(models.Model):
@@ -51,13 +52,12 @@ class Portfolio(models.Model):
     img = models.URLField()
     urllink = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
-    challenge = models.TextField()
-    Solution = models.TextField()
-    impact = models.TextField()
-    client = models.CharField(max_length=150)
+    challenge = RichTextField()
+    Solution = RichTextField()
+    impact = RichTextField()
+    conclusion = RichTextField()
     client = models.CharField(max_length=150)
     service = models.CharField(max_length=150)
-    client = models.CharField(max_length=150)
     industry = models.CharField(max_length=150)
 
     desc = models.TextField()
