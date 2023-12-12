@@ -39,15 +39,33 @@ class ContactUs(models.Model):
         return self.name
 
 
+class SkillsUsed(models.Model):
+    name = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.name
+
 
 class Portfolio(models.Model):
     name = models.CharField(max_length=350)
     img = models.URLField()
     urllink = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
+    challenge = models.TextField()
+    Solution = models.TextField()
+    impact = models.TextField()
+    client = models.CharField(max_length=150)
+    client = models.CharField(max_length=150)
+    service = models.CharField(max_length=150)
+    client = models.CharField(max_length=150)
+    industry = models.CharField(max_length=150)
+
     desc = models.TextField()
     dateadded = models.DateField(auto_now_add=True)
     dateupdated = models.DateField(auto_now=True)
+    skills = models.ManyToManyField(SkillsUsed)
+    slug = models.SlugField()
+
 
     def __str__(self):
         return self.name

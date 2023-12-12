@@ -8,6 +8,12 @@
 
 {% block content %}
 
+<style>
+    .pagclass:hover{
+        border: none;
+    }
+</style>
+
         <!-- banner -->
         <div class="mil-banner-sm mil-deep-bg" style="background-color: black;">
             <img src="" alt="background" class="mil-background-image">
@@ -52,23 +58,21 @@
                         <div class="pagination">
                             <span class="step-links">
                                 {% if page_obj.has_previous %}
-                                    <a href="?page=1">&laquo; first</a>
-                                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                    <a class="pagclass" style="border: 1px solid rgb(255, 157, 0); border-radius: 15px; padding: 15px;" href="?page=1">&laquo; first</a>
+                                    <a class="pagclass" style="border: 1px solid rgb(255, 157, 0); border-radius: 15px; margin: 15px; padding: 15px;" href="?page={{ page_obj.previous_page_number }}">previous</a>
                                 {% endif %}
                         
-                                <span class="current">
+                                <span class="current" style="margin: 15px; text-decoration: underline;">
                                     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                                 </span>
                         
                                 {% if page_obj.has_next %}
-                                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                    <a class="pagclass" style="border: 1px solid rgb(255, 157, 0); border-radius: 15px; margin: 15px; padding: 15px;" href="?page={{ page_obj.next_page_number }}">next</a>
+                                    <a class="pagclass" style="border: 1px solid rgb(255, 157, 0); border-radius: 15px; padding: 15px;" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
                                 {% endif %}
                             </span>
+                            
                         </div>
-                    </div>
-                        
-
                     </div>
                     
                 </div>

@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from website.models import Quotes, Team, ServicesModel, ContactUs, Portfolio
 import requests,random
+from django.core.paginator import Paginator
+
 # from django.views.decorators.cache import cache_page
 
 ######################## Views ##################################
@@ -40,5 +42,17 @@ def ContactUsPage(request):
 
 def PortfolioPage(request):
     data = Portfolio.objects.all()
-    context = {'data':data}
+    paginator = Paginator(data, 1)  # Show 25 contacts per page.
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    context = {'page_obj':page_obj}
     return render(request, 'website/portfolio.html', context)
+
+
+def PortfolioDetailPage(request, slug):
+    data = Portfolio.objects.get(slug=slug)
+
+    context = {'data': data}
+    return render(request, 'website/portfolioproject.html', context)

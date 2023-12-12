@@ -7,5 +7,7 @@ urlpatterns = [
     path("ContactUs/", views.ContactUsPage, name="contactus"),
     path("PrivacyPolicy/", views.PrivacyPolicy, name="privacypolicy"),
     path("Portfolio/", views.PortfolioPage, name="portfolio"),
+    path("PortfolioDetail/<str:slug>/", views.PortfolioDetailPage, name="portfoliodetail"),
+
 
 ]
