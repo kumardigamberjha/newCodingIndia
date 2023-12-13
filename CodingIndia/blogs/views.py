@@ -7,7 +7,7 @@ from blogs.models import AddBlog, Playlist
 def index(request):
     blogs = AddBlog.objects.all()
     play = Playlist.objects.all()
-    paginator = Paginator(blogs, 1)  # Show 25 contacts per page.
+    paginator = Paginator(blogs, 5)  # Show 25 contacts per page.
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
