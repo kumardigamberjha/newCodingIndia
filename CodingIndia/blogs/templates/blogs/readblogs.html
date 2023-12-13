@@ -6,8 +6,7 @@
 
 {% block meta %}
 <meta name="keywords" content='{{blogs.tags}}'>
-<meta name="description"
-  content="Coding india Blog page is one where you can read blogs on different topics like Data Science, machine Learning AI etc.">
+<meta name="description" content="{{blogs.description|safe|slice:'0:150'}}">
 {% endblock meta %}
 
 

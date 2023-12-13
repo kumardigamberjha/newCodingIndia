@@ -18,7 +18,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'images/logo.ico' %}" type="image/x-icon">
 
+    {% block title %}
     <title>Coding India</title>
+    {% endblock title %}
+
+    {% block meta %}
+    <meta name="keywords" content="Coding, Programming, Coding Services, Software Development, Web Development, App Development, Python Development, Django Development, HTML, CSS, Bootstrap Framework, MySQL Database, JavaScript, jQuery, Frontend Development, Backend Development, Custom Software Solutions, Technology Consulting, Agile Development, Innovative Solutions, UI/UX Design, Responsive Web Design, Mobile App Design">
+    <meta name="description" content="Coding India specializes in software development, web and app development using Python, Django, HTML/CSS, Bootstrap, JavaScript, jQuery, and MySQL. We offer custom solutions, technology consulting, and innovative UI/UX design for responsive web and mobile app development.">
+    {% endblock meta %}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CFWQNJKH8"></script>
