@@ -6,7 +6,7 @@
 
 {% block meta %}
 <meta name="keywords" content='{{blog.tags}}'>
-<meta name="description" content="{{blog.description|safe|slice:'0:150'}}">
+<meta name="description" content="{{blog.content|safe|slice:'0:150'}}">
 {% endblock meta %}
 
 
