@@ -143,8 +143,12 @@ $(document).ready(function() {
             success: function(response) {
                 console.log(response);
 
-                // Display AI response in the chat container
-                $('.chatContainer').append('<br><pre class="aiMessage">' + response.response + '</pre>');
+                // Display AI response in the chat container as plain text
+                var aiResponse = document.createElement('pre');
+                aiResponse.textContent = response.response;
+                aiResponse.className = 'aiMessage';
+                $('.chatContainer').append('<br>');
+                $('.chatContainer').append(aiResponse);
 
                 // Scroll to the bottom of the chat container
                 $('.chatContainer').scrollTop($('.chatContainer')[0].scrollHeight);
@@ -160,6 +164,5 @@ $(document).ready(function() {
         });
     });
 });
-
 </script>
 {% endblock content %}
