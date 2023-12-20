@@ -1,0 +1,165 @@
+{% extends 'website/index.html' %}
+
+{% block title %}
+<title>Generative AI - Coding India</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<style>
+    .mil-top-position{
+        background-color: black!important;
+    }
+    .gen .container-fluid{
+        width: 100%;
+        height: 100vh;
+        margin-top: 4.5rem;
+        border-left: 1px solid black;
+        background: url('../../../static/images/genbg.png');
+        background-attachment: fixed;
+    }
+    .gen .container-fluid .col-md-10{
+        /* border: 1px solid black; */
+    }
+    .gen .container-fluid .col-md-10 form .chatContainer{
+        width: 100%;
+        height: 72vh;
+        background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)); 
+         /* , url('../../../static/images/2193.jpg'); */
+        background-size: 100% 72vh;
+        background-repeat: no-repeat;
+        padding: 15px;
+        margin-top: 3rem;
+        resize: none;
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 3px ridge black;
+        border-radius: 35px;
+
+    }
+    .gen .container-fluid .col-md-10 form .chatContainer p {
+        margin: 5px 0;
+    }
+    .userMessage {
+        text-align: right; /* Align user messages to the right */
+        color: #fff;
+        background-color: rgba(14, 14, 121, 0.845); /* Blue color for user messages */
+        border-radius: 5px;
+        padding: 8px;
+        display: inline-block;
+    }
+    .chatContainer pre {
+        white-space: pre-wrap;
+    }
+
+    .aiMessage {
+        text-align: left; /* Align AI messages to the left */
+        color: #000;
+        background-color: #f1f1f1; /* Light gray color for AI messages */
+        border-radius: 5px;
+        padding: 8px;
+        display: inline-block;
+    }
+    .btns{
+        text-align: center;
+    }
+    .gen .container-fluid .col-md-10 form #genaiinput{
+        width: 100%; /* Adjust according to your design */
+        padding: 15px;
+        border-radius: 10px 35px;
+        margin: 10px 0;
+        display: inline;
+    }
+    .gen .container-fluid .col-md-10 form .gensubmit{
+        width: 150px; /* Adjust width as needed */
+        padding: 15px;
+        background-color: rgba(11, 10, 10, 0.534);
+        text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.752);
+        border-radius: 10px 30px 15px 55px;
+        display: inline;
+    }
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #000; /* Adjust the color as needed */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite; /* Animation for spinning */
+        margin: 20px auto; /* Adjust the margin to position it properly */
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="gen">
+    <div class="container-fluid">
+        <div class="box">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <form action="" method="post" id="genaiform" name="genaiform">
+                        {% csrf_token %}
+                        <div class="chatContainer"><pre style="color:white;">Let's Explore The Power Of Generative AI...</pre></div>
+                        <div class="btns">
+                        <textarea name="geninput" id="genaiinput" placeholder="Enter Your Text Here"></textarea>
+                        <div class="loader" style="display: none;">Loading...</div>
+                        <input type="submit" value="Submit" name="Submit" class="gensubmit">
+                    </div>
+                    </form>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#genaiform').on('submit', function(event) {
+        event.preventDefault();
+
+        $('.loader').show();
+        $('.gensubmit').hide();
+        let userInput = $('#genaiinput').val();
+
+        // Display user input in the chat container
+        if (userInput.trim() !== '') {
+            $('.chatContainer').append('<br><p class="userMessage">' + userInput + '</p>');
+            $('#genaiinput').val(''); // Clear input field
+        }
+
+        $.ajax({
+            url: '{% url "genaiconversation" %}',
+            method: "POST",
+            data: {'geninput': userInput},
+            success: function(response) {
+                console.log(response);
+
+                // Display AI response in the chat container
+                $('.chatContainer').append('<br><pre class="aiMessage">' + response.response + '</pre>');
+
+                // Scroll to the bottom of the chat container
+                $('.chatContainer').scrollTop($('.chatContainer')[0].scrollHeight);
+
+                $('.loader').hide();
+                $('.gensubmit').show();
+            },
+            error: function(response) {
+                console.log("Some Error");
+                $('.loader').hide();
+                $('.gensubmit').show();
+            }
+        });
+    });
+});
+
+</script>
+{% endblock content %}

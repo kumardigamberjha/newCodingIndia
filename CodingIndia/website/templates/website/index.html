@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'images/logo.ico' %}" type="image/x-icon">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     {% block title %}
     <title>Coding India</title>
     {% endblock title %}
@@ -61,6 +63,7 @@
                                         <li><a href="{% url 'contactus' %}">AI/ML</a></li>
                                         <li><a href="{% url 'contactus' %}">Website Development</a></li>
                                         <li><a href="{% url 'contactus' %}">App Development</a></li>
+                                        <li><a href="{% url 'genintro' %}">Gemini AI</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{% url 'blogs_index' %}">Blogs</a></li>

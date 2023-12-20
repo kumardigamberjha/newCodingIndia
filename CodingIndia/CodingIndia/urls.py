@@ -25,6 +25,8 @@ urlpatterns = [
     path('', include('website.urls')),
     path("blogs/", include("blogs.urls")),
     path("Codes/", include("MyCodes.urls")),
+    path("GenAI/", include("GenAI.urls")),
+
     path("projects/", include("projects.urls")),
     
     path("SignUp/", views.Signup_view, name="signup"),

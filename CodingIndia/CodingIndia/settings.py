@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'widget_tweaks',
     'taggit',
+    'GenAI',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,6 @@ CACHES = {
         "LOCATION": "my_cache_table",
     }
 }
+
+
+geminiAPI = "AIzaSyBpsQmLZ7K4wrRua0fml4PsQEA5BhgMGTI"
