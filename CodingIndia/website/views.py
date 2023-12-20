@@ -20,6 +20,12 @@ def index(request):
     return render(request, "website/index.html", context)
 
 
+def AboutUs(request):
+    data = "Coding India"
+    context = {'data': data}
+    return render(request, 'website/about.html', context)
+
+
 def PrivacyPolicy(request):
     return render(request, 'website/privacypolicy.html')
 
