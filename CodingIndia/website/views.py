@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, ContactUsForm
+from .forms import CreateUserForm, ContactUsForm, NewsLetterForm
 from django.contrib.auth.models import User
 
 from django.contrib import messages
-from website.models import Quotes, Team, ServicesModel, ContactUs, Portfolio
+from website.models import Quotes, Team, ServicesModel, ContactUs, Portfolio, NewsLetter
 import requests,random
 from django.core.paginator import Paginator
 
@@ -44,6 +44,20 @@ def ContactUsPage(request):
     context = {'form': form, 'service': service}
     return render(request, 'website/contactus.html', context)
 
+
+
+def NewsletterFormPage(request):
+    form = NewsLetterForm()
+    if request.method == "POST":
+        form = NewsLetterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            print("Form Saved")
+        else:
+            print("Form Error: ", form.errors)
+    context = {'form': form}
+    return redirect('/')
 
 
 def PortfolioPage(request):

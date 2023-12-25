@@ -69,3 +69,11 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class NewsLetter(models.Model):
+    email = models.EmailField()
+    registered_on = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.email

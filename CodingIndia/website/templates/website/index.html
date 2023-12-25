@@ -664,11 +664,10 @@
                                 </div>
                                 <div class="col-lg-5 mil-mb-30">
 
-                                    <form>
-
-                                        <input class="mil-rounded-input mil-text-center mil-mb-5" type="text" placeholder="Your email address">
-                                        <button class="mil-button mil-accent-bg mil-fw"><span>Subscribe Now</span></button>
-
+                                    <form method="POST" action="{% url 'newsletterpage' %}">
+                                        {% csrf_token %}
+                                        <input class="mil-rounded-input mil-text-center mil-mb-5" name="email" type="text" placeholder="Your email address">
+                                        <button class="mil-button mil-accent-bg mil-fw" type="submit"><span>Subscribe Now</span></button>
                                     </form>
 
                                 </div>
