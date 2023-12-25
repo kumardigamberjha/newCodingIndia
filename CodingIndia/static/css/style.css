@@ -78,7 +78,7 @@ body {
   font-family: "Sora", sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: rgba(18, 24, 32, 0.4);
+  color: rgba(0, 0, 0, 0.776);
   line-height: 170%;
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
@@ -2559,10 +2559,14 @@ icons
 .mil-icon-frame.mil-icon-frame-md {
   width: 45px;
   height: 45px;
+  padding-right: 45px;
+  margin: 45px;
 }
 .mil-icon-frame.mil-icon-frame-md:before {
   width: 20px;
   height: 20px;
+  padding-right: 45px;
+  margin: 45px;
 }
 .mil-icon-frame.mil-icon-frame-sm {
   width: 25px;

@@ -7,6 +7,7 @@
 
 {% block content %}
 
+
 <style>
     .mil-top-position{
         background-color: black!important;
@@ -19,12 +20,38 @@
         background: url('../../../static/images/genbg.png');
         background-attachment: fixed;
     }
-    .gen .container-fluid .col-md-10{
-        /* border: 1px solid black; */
+    .row{
+        display: flex;
+        justify-content: center;
     }
-    .gen .container-fluid .col-md-10 form .chatContainer{
+    .flex-container {
+        display: flex;
+        align-items: stretch;
+        background-color: #f1f1f1;
+    }
+
+    .flex-container > div {
+        background-color: DodgerBlue;
+        color: white;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+    }
+    .col-md-4{
+        margin-top: 2.1rem;
         width: 100%;
-        height: 72vh;
+        height: 100vh;
+        border: 1px solid red;
+    }
+    .col-md-4 form #genaiinput{
+        width: 100%;
+        height: 100vh;
+    }
+    .chatContainer{
+        width: 100%;
+        height: 100vh;
+        
         background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)); 
          /* , url('../../../static/images/2193.jpg'); */
         background-size: 100% 72vh;
@@ -37,7 +64,7 @@
         border-radius: 35px;
 
     }
-    .gen .container-fluid .col-md-10 form .chatContainer p {
+    .chatContainer p {
         margin: 5px 0;
     }
     .userMessage {
@@ -60,25 +87,14 @@
         padding: 8px;
         display: inline-block;
     }
-    .btns{
-        text-align: center;
-    }
-    .gen .container-fluid .col-md-10 form #genaiinput{
-        width: 100%; /* Adjust according to your design */
+    .gensubmit{
+        position: fixed;
+        width: 70%;
+        margin: auto;
+        top: 95%;
+        bottom: 10px;
         padding: 15px;
-        border-radius: 10px 35px;
-        margin: 10px 0;
-        display: inline;
-    }
-    .gen .container-fluid .col-md-10 form .gensubmit{
-        width: 150px; /* Adjust width as needed */
-        padding: 15px;
-        background-color: rgba(11, 10, 10, 0.534);
-        text-align: center;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.752);
-        border-radius: 10px 30px 15px 55px;
-        display: inline;
+        left: 0;
     }
     .loader {
         border: 4px solid rgba(0, 0, 0, 0.1);
@@ -99,23 +115,50 @@
         }
     }
 </style>
-<div class="gen">
+<!-- <div class="gen">
     <div class="container-fluid">
         <div class="box">
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <form action="" method="post" id="genaiform" name="genaiform">
+                    <form action="" method="post" id="genaiform" name="genaiform" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="chatContainer"><pre style="color:white;">Let's Explore The Power Of Generative AI...</pre></div>
                         <div class="btns">
                         <textarea name="geninput" id="genaiinput" placeholder="Enter Your Text Here"></textarea>
+                        <input type="file" name="geninputfile" id="genaiinputfile" />
+
                         <div class="loader" style="display: none;">Loading...</div>
                         <input type="submit" value="Submit" name="Submit" class="gensubmit">
                     </div>
                     </form>
                 </div>
                 <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="gen">
+    <div class="container-fluid">
+        <div class="box">
+            <div class="row">
+                <div class="col-md-4" style="flex-grow: 1">
+                    <form action="" method="post" id="genaiform" name="genaiform" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- <div class="chatContainer"><pre style="color:white;">Let's Explore The Power Of Generative AI...</pre></div> -->
+                        <textarea name="geninput" id="genaiinput" placeholder="Enter Your Text Here"></textarea>
+                        <input type="file" name="geninputfile" id="genaiinputfile" />
+
+                        <div class="loader" style="display: none;">Loading...</div>
+                        <input type="submit" value="Submit" name="Submit" class="gensubmit">
+                    </form>
+                </div>
+                <div class="col-md-1" style="flex-grow: 1"></div>
+                <div class="col-md-7" style="flex-grow: 8">
+                    <div class="chatContainer"><pre style="color:white;">Let's Explore The Power Of Generative AI...</pre></div>
+                </div>
             </div>
         </div>
     </div>
@@ -134,6 +177,7 @@ $(document).ready(function() {
         if (userInput.trim() !== '') {
             $('.chatContainer').append('<br><p class="userMessage">' + userInput + '</p>');
             $('#genaiinput').val(''); // Clear input field
+
         }
 
         $.ajax({

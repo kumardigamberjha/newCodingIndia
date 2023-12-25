@@ -15,8 +15,8 @@ from django.core.paginator import Paginator
 # @cache_page(60 * 15)
 def index(request):
     team = Team.objects.all()
-
-    context = {'team': team}
+    port = Portfolio.objects.all()[:4]
+    context = {'team': team, 'port':port}
     return render(request, "website/index.html", context)
 
 
