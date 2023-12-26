@@ -28,6 +28,7 @@ urlpatterns = [
     path("GenAI/", include("GenAI.urls")),
 
     path("projects/", include("projects.urls")),
+    path('UrlShortner/', include('UrlShortner.urls')),
     
     path("SignUp/", views.Signup_view, name="signup"),
     path('login/', views.Login_view, name="login"),

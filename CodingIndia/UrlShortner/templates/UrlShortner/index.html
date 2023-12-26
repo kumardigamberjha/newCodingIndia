@@ -1,0 +1,54 @@
+{% extends 'website/index.html' %}
+
+{% block title %}
+<title>Url Shortner - Coding India</title>
+{% endblock title %}
+
+
+{% block content %}
+<style>
+    body {
+        font-family: sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        margin-right: 10px;
+    }
+
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #008CBA;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    a {
+        color: #008CBA;
+    }
+</style>
+
+
+    <div class="container" style="margin-top: 155px; margin-bottom: 155px;">
+        <h1>URL Shortener</h1>
+        <form action="{% url 'createshorturl' %}" method="post" style="margin: 25px;">
+            {% csrf_token %}
+            <input type="text" name="url" placeholder="Enter a long URL">
+            <input type="submit" value="Shorten">
+        </form>
+    </div>
+
+{% endblock content %}
