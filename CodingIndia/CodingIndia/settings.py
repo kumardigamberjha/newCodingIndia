@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'taggit',
     'GenAI',
-    'UrlShortner'
+    'UrlShortner',
+    'Registration',
 ]
 
 MIDDLEWARE = [
@@ -163,3 +164,13 @@ CACHES = {
 
 
 geminiAPI = "AIzaSyBpsQmLZ7K4wrRua0fml4PsQEA5BhgMGTI"
+
+
+############################ Email Settings ######################################
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "kumardigamberjha@gmail.com"
+EMAIL_HOST_PASSWORD = "arfsmjaomeedqnfx"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

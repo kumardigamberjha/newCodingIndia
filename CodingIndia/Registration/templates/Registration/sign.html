@@ -1,0 +1,77 @@
+{% extends 'website/index.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+<ul class="messages alert alert-primary" style="width: 60%; margin: auto; list-style: none;">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }} "{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+  <div class="container text-center mx-auto">
+    <img src="{% static 'images/jaspo_logo-removebg-preview-2.png' %}" class="img-fluid text-center mx-auto" alt="jaspoworldwide"
+      style="width: 10em; max-height: 100%" />
+  </div>
+  <div class="container text-center mx-auto mt-3">
+    <p style="font-size: 1.5em; font-weight: 400">SIGN IN</p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              name="email" />
+            <div id="emailHelp" class="form-text">
+              <!-- We'll never share your email with anyone else. -->
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
+          </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault"
+                  style="text-decoration: none; color: rgb(138, 138, 138)">
+                  <p>Keep Me Signed In</p>
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 mt-3" style="text-decoration: none; color: black">
+              <a href="#" class="forgot mt-3" style="text-decoration: none; color: rgb(138, 138, 138)">
+                <p>Forgot Password?</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p style="text-decoration: none; color: rgb(138, 138, 138)">
+          By Logging In, you agree to JASPO's WORLDWIDE
+          <a href="#">Privacy Policy</a> and <a href="#">Term Of Use</a>
+        </p>
+
+        <div class="container mt-3 text-center mx-auto">
+          <button class="button" type="submit">SIGN IN</button>
+        </div>
+        <br />
+        <div class="container text-center mx-auto">
+          <p style="color: rgb(138, 138, 138)">
+            Not a Member ? <a href="{% url 'signup_view' %}">SIGN UP</a>
+          </p>
+        </div>
+      </div>
+    </form>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+{% endblock content %}

@@ -67,6 +67,11 @@
                                 <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
                                 <li><a href="{% url 'aboutus' %}">About Us</a></li>
                                 <li><a href="{% url 'contactus' %}">Contact Us</a></li>   
+                                {% if not user.is_authenticated %}
+                                    <li><a href="{% url 'signup_view' %}">Sign Up</a></li>  
+                                {% else %}
+                                    <li><a href="{% url 'logout_view' %}">Sign Out</a></li>  
+                                {% endif %}
                             </ul>
                             <div class="mil-search-icon">
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -635,6 +640,7 @@
         <!-- contact end -->
         {% endblock content %}
 
+        {% block footer %}
         <!-- footer -->
         <footer class="mil-dark-bg">
             <div class="container">
@@ -690,6 +696,7 @@
                 </div>
             </div>
         </footer>
+        {% endblock footer %}
         <!-- footer end -->
 
     </div>

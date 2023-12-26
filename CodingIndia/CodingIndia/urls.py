@@ -26,12 +26,10 @@ urlpatterns = [
     path("blogs/", include("blogs.urls")),
     path("Codes/", include("MyCodes.urls")),
     path("GenAI/", include("GenAI.urls")),
+    path("Registration/", include("Registration.urls")),
 
     path("projects/", include("projects.urls")),
     path('UrlShortner/', include('UrlShortner.urls')),
     
-    path("SignUp/", views.Signup_view, name="signup"),
-    path('login/', views.Login_view, name="login"),
-    path('logout/', views.Logout_view, name="logout"),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
