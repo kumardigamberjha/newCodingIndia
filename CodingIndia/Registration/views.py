@@ -53,21 +53,23 @@ def SignUpView(request):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         username = request.POST.get('username')
-        phone = request.POST.get('phone')
+        # phone = request.POST.get('phone')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
-        print("Email: ", email, username, phone)
+        print("Email: ", email, username)
         form = CreateUserForm(request.POST)
         if not User.objects.filter(email=email).exists():
             if form.is_valid():
                 otp = random.randint(100000, 999999)
+                print("Hello")
                 send_mail("User Data: ", f"Verify Your Mail by the OTT: /n {otp}", EMAIL_HOST_USER, [email], fail_silently=True) 
                 messages.success(request, 'User saved Successfully')
-                return render(request, 'Registration/otp.html', {'otp': otp, 'first_name': first_name, 'last_name': last_name, 'phone': phone, 'email': email,'username': username, 'password1': password1, 'password2': password2})
+                return render(request, 'Registration/otp.html', {'otp': otp, 'first_name': first_name, 'last_name': last_name, 'email': email,'username': username, 'password1': password1, 'password2': password2})
             else:
                 print("Form Error: ", form.errors)
                 messages.error(request, form.errors)
         else:
+            print("Email Already Exists", form.errors)
             messages.error(request, "Email Already Available")
     context = {'form': form}
     return render(request, 'Registration/Signup.html', context)
