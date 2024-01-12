@@ -25,15 +25,15 @@ def VerifyOTP(request):
             form = User(first_name=first_name, last_name=last_name, email=email, username=username, password = password1)
             form.set_password(password1)
             form.save()
-            print("Custom User Save")
+            # print("Custom User Save")
 
-        print("USername: ", username)
-        print("Password: ", password1)
+        # print("USername: ", username)
+        # print("Password: ", password1)
 
         user = authenticate(request, username=username, password=password1)
-        print("User: ", user)
+        # print("User: ", user)
         if user is not None:
-            print("Login Done")
+            # print("Login Done")
             login(request, user)
             return JsonResponse({'data': 'Hello'}, status=200)
 
@@ -56,20 +56,19 @@ def SignUpView(request):
         # phone = request.POST.get('phone')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
-        print("Email: ", email, username)
+        # print("Email: ", email, username)
         form = CreateUserForm(request.POST)
         if not User.objects.filter(email=email).exists():
             if form.is_valid():
                 otp = random.randint(100000, 999999)
-                print("Hello")
                 send_mail("User Data: ", f"Verify Your Mail by the OTT: /n {otp}", EMAIL_HOST_USER, [email], fail_silently=True) 
                 messages.success(request, 'User saved Successfully')
                 return render(request, 'Registration/otp.html', {'otp': otp, 'first_name': first_name, 'last_name': last_name, 'email': email,'username': username, 'password1': password1, 'password2': password2})
             else:
-                print("Form Error: ", form.errors)
+                # print("Form Error: ", form.errors)
                 messages.error(request, form.errors)
         else:
-            print("Email Already Exists", form.errors)
+            # print("Email Already Exists", form.errors)
             messages.error(request, "Email Already Available")
     context = {'form': form}
     return render(request, 'Registration/Signup.html', context)
@@ -85,8 +84,8 @@ def VerifyLoginOTP(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            print("Login Done")
-            print("OTP: ", userotp)
+            # print("Login Done")
+            # print("OTP: ", userotp)
     return JsonResponse({'data': 'Hello'}, status=200)
  
 
@@ -98,19 +97,19 @@ def LoginView(request):
             username = User.objects.get(email=email).username
         except:
             username = None
-        print("Username: ", username)
-        print("password: ", password)
-        print("Email: ", email)
+        # print("Username: ", username)
+        # print("password: ", password)
+        # print("Email: ", email)
         user = authenticate(request, username=username, password=password)
         if user is not None:
             otp = random.randint(100000, 999999)
-            # print("OTP: ", otp)
+            # # print("OTP: ", otp)
             send_mail("User Data: ", f"Verify Your Mail by the OPT: /n {otp}", EMAIL_HOST_USER, [email], fail_silently=True)
 
             return render(request, 'Registration/signinotp.html', {'otp': otp, 'username': username, 'password': password})   
         else:
             messages.error(request, 'Invalid Entry')
-            # print("Some error")
+            # # print("Some error")
     context = {}
     return render(request, 'Registration/Signup.html', context)
 
@@ -128,9 +127,9 @@ def signout(request):
 def Getusername(request):
     if request.method == "POST":
         username = request.POST.get("username")
-        #print("username: ", username)
+        ## print("username: ", username)
         if User.objects.filter(username=username).exists():
-            #print("username Exists")
+            ## print("username Exists")
             amount = "Username Exists"
             return JsonResponse({'amount' : amount}, status=200)
         else:
@@ -143,9 +142,9 @@ def Getusername(request):
 def GetEmail(request):
     if request.method == "POST":
         email = request.POST.get("email")
-        #print("username: ", email)
+        ## print("username: ", email)
         if User.objects.filter(email=email).exists():
-            #print("Email Exists")
+            ## print("Email Exists")
             amount = "Email Exists"
             return JsonResponse({'amount' : amount}, status=200)
         else:

@@ -8,6 +8,9 @@ from django.contrib import messages
 from website.models import Quotes, Team, ServicesModel, ContactUs, Portfolio, NewsLetter
 import requests,random
 from django.core.paginator import Paginator
+from django.core.mail import send_mail
+
+from CodingIndia.settings import EMAIL_HOST_USER
 
 # from django.views.decorators.cache import cache_page
 
@@ -35,12 +38,19 @@ def ContactUsPage(request):
     service = ServicesModel.objects.all()
     if request.method == "POST":
         form = ContactUsForm(request.POST)
+        name = request.POST.get('fname')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
 
         if form.is_valid():
             form.save()
-            print("Form Saved")
+            send_mail("Coding India: Contact Us", f"New mail from the user: {name} by email: {email}. \n The message is:\n{message}", EMAIL_HOST_USER, [email], fail_silently=True) 
+            messages.success(request, 'User saved Successfully')
+            # print("Form Saved")
         else:
-            print("Form Error: ", form.errors)
+            messages.success(request, 'User saved Successfully')
+
+            # print("Form Error: ", form.errors)
     context = {'form': form, 'service': service}
     return render(request, 'website/contactus.html', context)
 
@@ -53,9 +63,13 @@ def NewsletterFormPage(request):
 
         if form.is_valid():
             form.save()
-            print("Form Saved")
+            messages.success(request, 'Subscribed Successfully')
+
+            # print("Form Saved")
         else:
-            print("Form Error: ", form.errors)
+            # print("Form Error: ", form.errors)
+            messages.success(request, 'Failed to Subscribed Successfully')
+
     context = {'form': form}
     return redirect('/')
 
