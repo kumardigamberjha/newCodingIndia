@@ -67,12 +67,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in data %}
+                {% for i in short_url %}
                   <tr>
                     <th scope="row">{{forloop.counter}}</th>
-                    <td><a href="{% url 'redirect_to_long_url' i.short_key %}">{{i.short_key}}</a></td>
+                    <td><a href="{% url 'redirect_to_long_url' i.short_key %}">http://127.0.0.1:8000/UrlShortner/{{i.short_key}}</a></td>
                     <td>{{i.on_date}}</td>
-                    <td><a href="{% url 'deleteurl' i.short_key' %}"></a></td>
+                    <td><a href="{% url 'deleteurl' i.short_key %}"></a></td>
                   </tr>
                   {% endfor %}
                 </tbody>

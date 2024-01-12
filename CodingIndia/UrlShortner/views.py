@@ -2,24 +2,26 @@ from django.shortcuts import render, redirect
 from .models import ShortenedURL
 import random
 import string
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
-from django.contrib.auth.decorators import login_required
+@login_required
 def UrlShortnewView(request):
     print("Hello")
     try:
-        shorturls = ShortenedURL.objects.filter(foruser=request.user.username)
+        shorturls = ShortenedURL.objects.filter(foruser=request.user)
         print("ShortUrls: ", shorturls)
     except:
         shorturls = []
         print("ShortUrls: ", shorturls)
 
-    context = {'shorturls': shorturls}
+    context = {'short_url': shorturls}
     return render(request, 'UrlShortner/index.html', context)
 
 
-from django.contrib.auth.decorators import login_required
+@login_required
 def CreateShortUrl(request):
     print("2")
     short_url = ""
@@ -39,7 +41,7 @@ def CreateShortUrl(request):
     except:
         shorturls = []
     print("ShortUrls: ", shorturls)
-    context = {'short_url': short_url, 'data':shorturls}
+    context = {'short_url':shorturls}
     return render(request, 'UrlShortner/index.html', context)
 
 
