@@ -3,7 +3,9 @@ from .models import ShortenedURL
 import random
 import string
 
+
 # Create your views here.
+from django.contrib.auth.decorators import login_required
 def UrlShortnewView(request):
     print("Hello")
     try:
@@ -17,6 +19,7 @@ def UrlShortnewView(request):
     return render(request, 'UrlShortner/index.html', context)
 
 
+from django.contrib.auth.decorators import login_required
 def CreateShortUrl(request):
     print("2")
     short_url = ""
@@ -53,6 +56,7 @@ def generate_short_key():
     return ''.join(random.choice(characters) for _ in range(key_length))
 
 
+from django.contrib.auth.decorators import login_required
 def DeleteUrl(request, short_key):
     data = ShortenedURL.objects.get(short_key=short_key)
     data.delete()
