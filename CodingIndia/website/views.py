@@ -45,10 +45,10 @@ def ContactUsPage(request):
         if form.is_valid():
             form.save()
             send_mail("Coding India: Contact Us", f"New mail from the user: {name} by email: {email}. \n The message is:\n{message}", EMAIL_HOST_USER, [email], fail_silently=True) 
-            messages.success(request, 'User saved Successfully')
+            messages.success(request, 'Message Sent Successfully')
             # print("Form Saved")
         else:
-            messages.success(request, 'User saved Successfully')
+            messages.success(request, 'Something went wrong')
 
             # print("Form Error: ", form.errors)
     context = {'form': form, 'service': service}

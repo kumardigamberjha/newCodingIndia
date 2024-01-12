@@ -1,117 +1,130 @@
 {% extends 'website/index.html' %}
 
 {% block content %}
-        <!-- banner -->
-        <div class="mil-banner-sm mil-deep-bg" style="background-color: black;">
-            <img src="" alt="background" class="mil-background-image">
-            <div class="mil-deco mil-deco-accent" style="top: 47%; right: 10%; transform: rotate(90deg)"></div>
-            <div class="mil-banner-content">
-                <div class="container mil-relative">
-                    <ul class="mil-breadcrumbs mil-mb-30">
-                        <li><a href="/" style="color: white;">Home</a></li>
-                        <li><a href="#" style="color: white;">Contact Us</a></li>
-                    </ul>
-                    <h2 class="mil-uppercase" style="color: white;">Talk With Our Team</h2>
+<!-- banner -->
+<div class="mil-banner-sm mil-deep-bg" style="background-color: black;">
+    <img src="" alt="background" class="mil-background-image">
+    <div class="mil-deco mil-deco-accent" style="top: 47%; right: 10%; transform: rotate(90deg)"></div>
+    <div class="mil-banner-content">
+        <div class="container mil-relative">
+            <ul class="mil-breadcrumbs mil-mb-30">
+                <li><a href="/" style="color: white;">Home</a></li>
+                <li><a href="#" style="color: white;">Contact Us</a></li>
+            </ul>
+            <h2 class="mil-uppercase" style="color: white;">Talk With Our Team</h2>
+        </div>
+    </div>
+</div>
+<!-- banner end -->
+
+<!-- contact -->
+<section class="mil-contact mil-p-120-0">
+    {% if messages %}
+    <ul class="messages alert alert-primary" style="width: 60%; margin: auto; list-style: none; margin-bottom: 35px;">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }} " {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-8 col-xl-8 mil-mb-120">
+
+                <form id="formContacts" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <!-- <h4 class="mil-mb-60"><span class="mil-accent">01.</span> Tell Us About Yourself</h4> -->
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="mil-input-frame mil-dark-input mil-mb-30">
+                                <label class="mil-h6 mil-dark"><span>First Name</span></label>
+                                <input type="text" name="fname" required placeholder="John">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div class="mil-input-frame mil-dark-input mil-mb-30">
+                                <label class="mil-h6"><span>Last Name</span></label>
+                                <input type="text" name="lname" required placeholder="Jones">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div class="mil-input-frame mil-dark-input mil-mb-30">
+                                <label class="mil-h6"><span>Email Address</span></label>
+                                <input type="email" name="email" required placeholder="doe@mydomain.com">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div class="mil-input-frame mil-dark-input mil-mb-30">
+                                <label class="mil-h6"><span>Phone</span></label>
+                                <input type="tel" name="phone" placeholder="Enter your phone number">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-12">
+
+
+                            <div class="mil-input-frame mil-dark-input mil-mb-30">
+                                <label class="mil-h6 mil-dark"><span>Message</span></label>
+                                <!-- <input type="text" name="company" placeholder="Your company name"> -->
+                                <textarea name="message" id="" cols="30" rows="10" style="width: 100%;"></textarea>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-12">
+
+                            <button type="submit" class="mil-button mil-border mil-fw"><span>Submit Now</span></button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="alert-success" style="display: none;">
+                        <h5>Thanks, your message is sent successfully.</h5>
+                    </div>
+                    <div class="alert-error" style="display: none;">
+                        <h5>Error! Message could not be sent.</h5>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-4 col-xl-3 mil-mb-120">
+
+                <div class="mil-mb-60">
+                    <h5 class="mil-list-title mil-mb-30">Support Request</h5>
+                    <p class="mil-mb-20">Our experts are ready to answer your questions.</p>
                 </div>
+
+                <div class="mil-divider mil-mb-60"></div>
+
+                <div class="mil-mb-60">
+                    <h5 class="mil-list-title mil-mb-10">Have a Question?</h5>
+                    <p>Feel free to reach out to us with any questions you may have. Our dedicated support team is here
+                        to assist you.</p>
+                </div>
+
+                <div class="mil-mb-60">
+                    <h5 class="mil-list-title mil-mb-10">Need More Information?</h5>
+                    <p>If you need more details about our services or have specific inquiries, don't hesitate to get in
+                        touch.</p>
+                </div>
+
+                <div class="mil-divider mil-mb-60"></div>
+
             </div>
         </div>
-        <!-- banner end -->
-
-        <!-- contact -->
-        <section class="mil-contact mil-p-120-0">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-8 col-xl-8 mil-mb-120">
-
-                        <form id="formContacts" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-
-                            <!-- <h4 class="mil-mb-60"><span class="mil-accent">01.</span> Tell Us About Yourself</h4> -->
-
-                            <div class="row">
-                                <div class="col-lg-6">
-
-                                    <div class="mil-input-frame mil-dark-input mil-mb-30">
-                                        <label class="mil-h6 mil-dark"><span>First Name</span></label>
-                                        <input type="text" name="fname" required placeholder="John">
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-6">
-
-                                    <div class="mil-input-frame mil-dark-input mil-mb-30">
-                                        <label class="mil-h6"><span>Last Name</span></label>
-                                        <input type="text" name="lname" required placeholder="Jones">
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-6">
-
-                                    <div class="mil-input-frame mil-dark-input mil-mb-30">
-                                        <label class="mil-h6"><span>Email Address</span></label>
-                                        <input type="email" name="email" required placeholder="doe@mydomain.com">
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-6">
-
-                                    <div class="mil-input-frame mil-dark-input mil-mb-30">
-                                        <label class="mil-h6"><span>Phone</span></label>
-                                        <input type="tel" name="phone" placeholder="Enter your phone number">
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-12">
-
-
-                                    <div class="mil-input-frame mil-dark-input mil-mb-30">
-                                        <label class="mil-h6 mil-dark"><span>Message</span></label>
-                                        <!-- <input type="text" name="company" placeholder="Your company name"> -->
-                                        <textarea name="message" id="" cols="30" rows="10" style="width: 100%;"></textarea>
-                                    </div>
-
-                                </div>
-                                
-
-                                <div class="col-lg-12">
-
-                                    <button type="submit" class="mil-button mil-border mil-fw"><span>Submit Now</span></button>
-
-                                </div>
-
-                            </div>
-                            
-                            <div class="alert-success" style="display: none;"><h5>Thanks, your message is sent successfully.</h5></div>
-                            <div class="alert-error" style="display: none;"><h5>Error! Message could not be sent.</h5></div>
-                        </form>
-
-                    </div>
-                    <div class="col-lg-4 col-xl-3 mil-mb-120">
-
-                        <div class="mil-mb-60">
-                            <h5 class="mil-list-title mil-mb-30">Support Request</h5>
-                            <p class="mil-mb-20">Our experts are ready to answer your questions.</p>
-                        </div>
-
-                        <div class="mil-divider mil-mb-60"></div>
-
-                        <div class="mil-mb-60">
-                            <h5 class="mil-list-title mil-mb-10">Have a Question?</h5>
-                            <p>Feel free to reach out to us with any questions you may have. Our dedicated support team is here to assist you.</p>
-                        </div>
-                        
-                        <div class="mil-mb-60">
-                            <h5 class="mil-list-title mil-mb-10">Need More Information?</h5>
-                            <p>If you need more details about our services or have specific inquiries, don't hesitate to get in touch.</p>
-                        </div>
-
-                        <div class="mil-divider mil-mb-60"></div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- contact end -->
+    </div>
+</section>
+<!-- contact end -->
 
 
 {% endblock content %}
