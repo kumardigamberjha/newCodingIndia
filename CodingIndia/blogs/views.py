@@ -5,7 +5,7 @@ from blogs.models import AddBlog, Playlist
 
 ######################## Views ##################################
 def index(request):
-    blogs = AddBlog.objects.all()
+    blogs = AddBlog.objects.all().order_by('-pub_date')
     play = Playlist.objects.all()
     paginator = Paginator(blogs, 5)  # Show 25 contacts per page.
 
